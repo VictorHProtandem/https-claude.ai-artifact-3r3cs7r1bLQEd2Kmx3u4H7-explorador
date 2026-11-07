@@ -3,243 +3,299 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cota &amp; Carga Ingeniería</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<title>Protándem Ingeniería</title>
+<meta name="description" content="Estructuras, geotecnia e infraestructura en toda la República Mexicana. Proyectos para constructoras e inmobiliarias, y casas a la medida para familias.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23121417' stroke='%23C5A47E' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='800' font-style='italic' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,800&display=swap">
 <style>
-/* Layout: la página es un registro de sondeo. Cada sección es un estrato y un riel lateral marca la profundidad. */
-:root {
-  --paper:#F1F3F1; --ink:#13201F; --ink-2:#47544F; --line:#BFC7C2; --surface:#FBFCFB;
-  --accent:#1C46C9; --on-accent:#FFFFFF; --hatch:rgba(19,32,31,.34); --water:#1178A8;
-  --s1:#F1F3F1; --s2:#E9E9E1; --s3:#E0DDD1; --s4:#D7D2C2; --s5:#CEC7B4;
-  --soil-fill:#B7AD9C; --soil-crust:#C5A77C; --soil-clay:#A98A6B; --soil-sand:#D6BC7F; --soil-tuff:#BCA88A; --soil-deep:#9F9A83; --soil-rock:#8A9299;
-  --ok:#1C6B47; --warn:#8A5A00; --bad:#A92C1E;
-  --rock-bg:#1E2628; --rock-fg:#EDF0EC; --rock-fg2:#B4BFBB; --rock-line:#465254; --rock-accent:#A5BCFF; --rock-on:#0D1633;
-  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
-  --body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",Consolas,Menlo,monospace;
-  --rail:0px;
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --paper:#12181A; --ink:#E7ECE9; --ink-2:#A6B2AD; --line:#36423F; --surface:#1A2224;
-  --accent:#8FABFF; --on-accent:#0D1633; --hatch:rgba(231,236,233,.3); --water:#5CC0EC;
-  --s1:#12181A; --s2:#161B1A; --s3:#1B1E1A; --s4:#20221C; --s5:#25251E;
-  --soil-fill:#5F594E; --soil-crust:#6F5B3F; --soil-clay:#5E4A38; --soil-sand:#7E6C42; --soil-tuff:#6B5D49; --soil-deep:#55523F; --soil-rock:#4C545B;
-  --ok:#6FD3A3; --warn:#E8B85C; --bad:#FF9385;
-  --rock-bg:#090C0D; --rock-line:#333E40;
-  color-scheme:dark;
-} }
-:root[data-theme="dark"] {
-  --paper:#12181A; --ink:#E7ECE9; --ink-2:#A6B2AD; --line:#36423F; --surface:#1A2224;
-  --accent:#8FABFF; --on-accent:#0D1633; --hatch:rgba(231,236,233,.3); --water:#5CC0EC;
-  --s1:#12181A; --s2:#161B1A; --s3:#1B1E1A; --s4:#20221C; --s5:#25251E;
-  --soil-fill:#5F594E; --soil-crust:#6F5B3F; --soil-clay:#5E4A38; --soil-sand:#7E6C42; --soil-tuff:#6B5D49; --soil-deep:#55523F; --soil-rock:#4C545B;
-  --ok:#6FD3A3; --warn:#E8B85C; --bad:#FF9385;
-  --rock-bg:#090C0D; --rock-line:#333E40;
-  color-scheme:dark;
+/* Paleta y tipografías oficiales del dossier: piedra pizarra, bronce, Cinzel y Montserrat. */
+:root{
+  --slate-dark:#121417;--slate-medium:#1C1F24;--slate-light:#2A2E35;
+  --bronze:#C5A47E;--bronze-light:#E2C9A6;--bronze-dark:#8C6D46;--bronze-text:#775A36;
+  --white:#FFFFFF;--offwhite:#F7F6F4;--sand:#F0EDE8;--text:#1E2022;--muted:#5A6065;--border:#E2DED8;
+  --on-dark:#D8D4CE;--on-dark-2:#A8AEB5;
+  --gold:linear-gradient(135deg,#9C7A50 0%,#DFC6A3 50%,#8C6D46 100%);
+  --slate-grad:radial-gradient(circle at 50% 35%,#23272E 0%,#101215 100%);
+  --ok:#1C6B47;--warn:#8A5A00;--bad:#A92C1E;--water:#1178A8;
+  --soil-fill:#B7AD9C;--soil-crust:#C5A77C;--soil-clay:#A98A6B;--soil-sand:#D6BC7F;--soil-tuff:#BCA88A;--soil-deep:#9F9A83;--soil-rock:#8A9299;--hatch:rgba(18,20,23,.32);
+  --serif:"Cinzel",Georgia,"Times New Roman",serif;--sans:"Montserrat","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
 }
 [hidden]{display:none!important}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--surface)}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--white);color:var(--text);font:400 1.0313rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--slate-dark)}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-h1,h2,h3,p,ol,ul,dl,dd{margin:0}
-ol,ul{padding:0;list-style:none}
-h1,h2{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:.005em;text-wrap:balance}
-h1{font-size:clamp(3rem,6.4vw,5.9rem)}
-h2{font-size:clamp(2.3rem,4.4vw,3.9rem)}
-h3{font-size:1.15rem;font-weight:700;line-height:1.3;text-wrap:balance}
-.mono{font-family:var(--mono);font-size:.8rem;letter-spacing:.01em;font-variant-numeric:tabular-nums}
-.muted{color:var(--ink-2)}
-.wrap{max-width:1240px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--bronze-dark);outline-offset:2px}
+.dark :focus-visible,.top :focus-visible{outline-color:var(--bronze-light)}
+h1,h2{font-family:var(--serif);font-weight:700;letter-spacing:.03em;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(2.2rem,5vw,3.9rem)}
+h2{font-size:clamp(1.7rem,3.2vw,2.6rem)}
+h3{font-size:1.14rem;font-weight:700;line-height:1.35;text-wrap:balance}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-text)}
+.dark .eyebrow{color:var(--bronze)}
+.rule{width:72px;height:3px;background:var(--gold)}
+.muted{color:var(--muted)}
+.dark .muted{color:var(--on-dark-2)}
+.lede{font-size:1.14rem;max-width:44rem}
+.sect{padding-block:clamp(56px,7vw,92px)}
+.sect>.wrap{display:grid;gap:clamp(28px,4vw,46px)}
+.sect.alt{background:var(--offwhite)}
+.dark{background:var(--slate-grad);color:var(--white);position:relative}
+.dark::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(125deg,rgba(255,255,255,.03) 0%,transparent 40%,rgba(0,0,0,.4) 100%),repeating-linear-gradient(45deg,rgba(255,255,255,.01) 0,rgba(255,255,255,.01) 2px,transparent 2px,transparent 8px)}
+.dark>*{position:relative}
+.head{display:grid;gap:13px;max-width:50rem}
+.btn{display:inline-block;background:var(--slate-dark);color:var(--white);border:1.5px solid var(--slate-dark);font:700 .97rem/1.25 var(--sans);text-decoration:none;text-align:center;padding:14px 22px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--bronze-dark);border-color:var(--bronze-dark)}
+.btn.gold{background:var(--bronze);border-color:var(--bronze);color:var(--slate-dark)}
+.btn.gold:hover{background:var(--bronze-light);border-color:var(--bronze-light)}
+.btn.line{background:transparent;color:var(--slate-dark)}
+.btn.line:hover{background:var(--slate-dark);color:var(--white);border-color:var(--slate-dark)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 
-/* Aviso y cabecera */
-.notice{background:var(--ink);color:var(--paper);font:400 .78rem/1.4 var(--mono);text-align:center;padding-block:7px}
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--surface);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:24px;min-height:64px;max-width:none}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.5rem/1 var(--display);text-transform:uppercase;white-space:nowrap}
-.brand svg{width:26px;height:26px;flex:none}
-.nav{display:flex;gap:26px;margin-left:auto;align-items:center}
-.nav a{text-decoration:none;font-weight:500;font-size:.97rem}
-.nav a:not(.btn):hover{color:var(--accent)}
-.depth-pill{display:none;margin-left:auto;font:500 .78rem var(--mono);color:var(--ink-2);white-space:nowrap}
-.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);font:500 .9rem var(--body);padding:7px 12px;cursor:pointer}
-.btn{display:inline-block;background:var(--accent);color:var(--on-accent);font:700 1rem/1.2 var(--body);text-decoration:none;padding:13px 20px;border:1.5px solid var(--accent);cursor:pointer;transition:transform .12s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-.nav .btn{padding:9px 14px;font-size:.92rem}
-@media (max-width:820px){
-  .depth-pill{display:block}
-  .menu-btn{display:block}
-  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;margin:0;background:var(--surface);border-bottom:1px solid var(--line);padding:6px max(20px,env(safe-area-inset-right,0px)) 16px max(20px,env(safe-area-inset-left,0px))}
-  .nav a{padding:11px 0}
-  .nav .btn{text-align:center;padding:12px;margin-top:8px}
-  .nav:not(.open){display:none}
-}
+/* Cabecera */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--slate-dark);color:var(--white);border-bottom:1px solid var(--bronze-dark)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.iso{flex:none;width:40px;height:40px;border-radius:50%;background:var(--slate-medium);color:var(--white);border:1.5px solid var(--bronze);display:grid;place-items:center;font:italic 800 1.3rem/1 var(--sans)}
+.wordmark{display:grid;line-height:1.1}
+.wordmark b{font:700 1.14rem/1.1 var(--serif);letter-spacing:.13em;color:var(--bronze-light)}
+.wordmark span{font-size:.6rem;font-weight:500;letter-spacing:.38em;color:var(--on-dark)}
+.routes{display:flex;border:1px solid var(--bronze-dark)}
+.routes a{padding:9px 15px;text-decoration:none;font-weight:600;font-size:.88rem;color:var(--on-dark);white-space:nowrap}
+.routes a+a{border-left:1px solid var(--bronze-dark)}
+.routes a:hover{color:var(--bronze-light)}
+.routes a[aria-current=page]{background:var(--bronze);color:var(--slate-dark)}
+@media (max-width:560px){.wordmark span{display:none}.wordmark b{font-size:.92rem;letter-spacing:.08em}.iso{width:34px;height:34px;font-size:1.1rem}.routes a{padding:8px 9px;font-size:.78rem}.top .wrap{gap:8px}}
+.subnav{background:var(--sand);border-bottom:1px solid var(--border);overflow-x:auto}
+.subnav ul{display:flex;gap:26px;padding-block:11px;white-space:nowrap}
+.subnav a{font-size:.88rem;font-weight:600;text-decoration:none;color:var(--text)}
+.subnav a:hover{color:var(--bronze-text);text-decoration:underline}
 
-/* Riel de profundidad */
-.rail{display:none}
-@media (min-width:1000px){
-  :root{--rail:calc(84px + env(safe-area-inset-left,0px))}
-  main,.foot{margin-left:var(--rail)}
-  .rail{display:flex;flex-direction:column;position:fixed;left:0;top:64px;bottom:0;width:var(--rail);z-index:20;background:var(--surface);border-right:1px solid var(--line);padding:14px 10px 16px calc(12px + env(safe-area-inset-left,0px));gap:8px}
-  .rail-read{font:500 .72rem/1.25 var(--mono);font-variant-numeric:tabular-nums;min-height:2.5em}
-  .rail-read b{display:block;font-size:.88rem;font-weight:500;color:var(--accent)}
-  .rail-col{flex:1;position:relative;display:flex;flex-direction:column;width:26px;min-height:0;border:1px solid var(--ink)}
-  .rail-col a{display:block;position:relative;min-height:0;border-bottom:1px solid var(--ink)}
-  .rail-col a:last-of-type{border-bottom:0}
-  .rail-col a:hover{filter:brightness(1.1)}
-  .rail-mark{position:absolute;left:-5px;right:-14px;height:0;border-top:2.5px solid var(--accent);pointer-events:none}
-  .rail-mark::after{content:"";position:absolute;right:-1px;top:-6.5px;border:5px solid transparent;border-right:7px solid var(--accent)}
-  .rail-end{font:400 .68rem var(--mono);color:var(--ink-2)}
-}
-/* Rellenos gráficos de suelo: el color viene de un token, el dibujo de una máscara */
-.sf-fill{background:var(--soil-fill)}.sf-crust{background:var(--soil-crust)}.sf-clay{background:var(--soil-clay)}.sf-sand{background:var(--soil-sand)}.sf-deep{background:var(--soil-deep)}.sf-rock{background:var(--soil-rock)}
-.band{position:relative;height:30px;overflow:hidden;border-block:1px solid var(--ink)}
-.hatch{position:absolute;inset:0;background:var(--hatch);-webkit-mask-size:auto;mask-size:auto}
-.m-fill{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Cpath d='M2 6l6 5M14 4l-3 7M6 18l7-2M18 13l2 6' stroke='%23000' stroke-width='1.3' fill='none'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Cpath d='M2 6l6 5M14 4l-3 7M6 18l7-2M18 13l2 6' stroke='%23000' stroke-width='1.3' fill='none'/%3E%3C/svg%3E")}
-.m-clay{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M1 3h10M13 9h10' stroke='%23000' stroke-width='1.3'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M1 3h10M13 9h10' stroke='%23000' stroke-width='1.3'/%3E%3C/svg%3E")}
-.m-sand{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='3' cy='3' r='1.1'/%3E%3Ccircle cx='9' cy='9' r='1.1'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='3' cy='3' r='1.1'/%3E%3Ccircle cx='9' cy='9' r='1.1'/%3E%3C/svg%3E")}
-.m-rock{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='18'%3E%3Cpath d='M0 9h28M7 0v9M21 9v9' stroke='%23000' stroke-width='1.3' fill='none'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='18'%3E%3Cpath d='M0 9h28M7 0v9M21 9v9' stroke='%23000' stroke-width='1.3' fill='none'/%3E%3C/svg%3E")}
+/* Portada */
+.hero{padding-block:clamp(44px,6vw,76px)}
+.hero>.wrap{display:grid;gap:clamp(28px,4vw,42px)}
+.hero-t{display:grid;gap:14px;text-align:center;justify-items:center}
+.pillars{font-size:.78rem;font-weight:600;letter-spacing:.24em;color:var(--bronze)}
+.hero-t .lede{color:var(--on-dark)}
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.door{display:grid;gap:15px;align-content:start;padding:clamp(22px,3vw,34px);border:1px solid rgba(197,164,126,.45);background:rgba(255,255,255,.035);text-decoration:none;color:var(--white);transition:border-color .15s,background .15s,transform .15s}
+.door:hover{border-color:var(--bronze-light);background:rgba(197,164,126,.09);transform:translateY(-3px)}
+.door svg{width:100%;height:auto;max-height:170px;display:block}
+.door .who{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+.door h2{font-size:clamp(1.45rem,2.5vw,2rem)}
+.door p{color:var(--on-dark)}
+.door ul{display:grid;gap:7px;font-size:.95rem;color:var(--on-dark)}
+.door li{padding-left:18px;position:relative}
+.door li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--bronze)}
+.go{justify-self:start;background:var(--bronze);color:var(--slate-dark);font-weight:700;padding:12px 20px}
+.door:hover .go{background:var(--bronze-light)}
+@media (max-width:780px){.doors{grid-template-columns:minmax(0,1fr)}}
 
-/* Secciones */
-.sect{padding-block:clamp(56px,7vw,96px);background:var(--sect);--sect:var(--s1)}
-.sect .wrap{display:grid;gap:clamp(30px,4vw,52px)}
-.head{display:grid;gap:14px;max-width:48rem}
-.stratum{font:500 .8rem/1.4 var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-2)}
-.head p{max-width:40rem}
+/* Encabezado de ruta */
+.intro{padding-block:clamp(40px,5vw,66px)}
+.intro .wrap{display:grid;gap:15px}
+.intro .lede{color:var(--on-dark)}
 
-/* Hero */
-.hero{--sect:var(--s1);padding-block:clamp(36px,5vw,64px) 0;background:var(--s1);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
-.hero-copy{display:grid;gap:24px;align-self:center;padding-bottom:32px}
-.hero-copy .lede{font-size:1.2rem;line-height:1.5;max-width:35rem}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.chain{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 .8rem var(--mono);color:var(--ink-2)}
-.chain li+li::before{content:"→";margin-right:18px;color:var(--accent)}
-.hero svg{display:block;width:100%;height:auto;max-width:100%}
-.draw-in .anim{stroke-dasharray:1;animation:draw 1.5s cubic-bezier(.3,.7,.2,1) both}
-@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-@media (prefers-reduced-motion:reduce){.draw-in .anim{animation:none}}
-@media (max-width:820px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero-copy{padding-bottom:0}}
+/* Campos */
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend,.lbl{display:block;font-weight:700;font-size:.95rem;padding:0;margin-bottom:9px}
+.help{display:block;font-size:.88rem;font-weight:400;color:var(--muted);line-height:1.45}
+legend .help,.lbl .help{margin-top:2px}
+input[type=text],input[type=number],input[type=email],input[type=tel],select,textarea{width:100%;padding:12px;border:1.5px solid #B9B3A8;background:var(--white);color:var(--text);font:500 1rem var(--sans);border-radius:0}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--bronze-dark);outline-offset:0;border-color:var(--bronze-dark)}
+.grid-f{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.grid-f .full{grid-column:1/-1}
+.grid-3f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.grid-f{grid-template-columns:minmax(0,1fr)}}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
+.opt{position:relative;display:block}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opt span{display:block;height:100%;padding:12px 13px;border:1.5px solid #B9B3A8;background:var(--white);font-weight:600;font-size:.95rem;line-height:1.3}
+.opt small{display:block;font-weight:400;font-size:.82rem;color:var(--muted);margin-top:3px;line-height:1.35}
+.opt input:hover+span{border-color:var(--bronze-dark)}
+.opt input:checked+span{background:var(--slate-dark);border-color:var(--slate-dark);color:var(--white)}
+.opt input:checked+span small{color:var(--on-dark)}
+.opt input:focus-visible+span{outline:3px solid var(--bronze-dark);outline-offset:2px}
+.counter{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:11px;border-bottom:1px solid var(--border)}
+.counter b{display:block}
+.ctl{display:flex;align-items:center;gap:6px;flex:none}
+.ctl button{width:42px;height:42px;border:1.5px solid var(--slate-dark);background:var(--white);color:var(--slate-dark);font:600 1.3rem/1 var(--sans);cursor:pointer}
+.ctl button:hover:not(:disabled){background:var(--slate-dark);color:var(--white)}
+.ctl button:disabled{opacity:.3;cursor:default}
+.ctl output{min-width:2ch;text-align:center;font-weight:800;font-size:1.2rem}
+.note{font-size:.92rem;padding:11px 13px;background:var(--sand);border-left:3px solid var(--bronze-dark)}
+.note.warn{border-left-color:var(--warn)}
+.err{color:var(--bad);font-size:.88rem;font-weight:600}
 
-/* Dibujos */
-.sec-svg text{font-family:var(--mono);font-size:10.5px;fill:var(--ink);paint-order:stroke;stroke:var(--sect);stroke-width:3px;stroke-linejoin:round;font-variant-numeric:tabular-nums}
-.sec-svg text.bare{stroke:none}
-.sec-svg text.b{font-weight:500}
-.sec-svg text.w{fill:var(--water)}
-.sec-svg text.ac{fill:var(--accent)}
-.sec-svg .h{fill:none;stroke:var(--hatch);stroke-width:1}
-.sec-svg .hd{fill:var(--hatch)}
-
-/* Servicios */
-.disciplines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
-.disc{display:grid;gap:14px;align-content:start;min-width:0}
-.disc h3{font:800 2rem/1 var(--display);text-transform:uppercase;padding-bottom:12px;border-bottom:2px solid var(--ink)}
-.disc li{display:grid;gap:3px;padding-block:13px;border-bottom:1px solid var(--line)}
-.disc li b{font-weight:700}
-.disc li span{color:var(--ink-2);font-size:.98rem}
-.joint{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(16px,3vw,40px);background:var(--accent);color:var(--on-accent);padding:clamp(22px,3vw,36px);align-items:center}
-.joint h3{font:800 clamp(1.7rem,2.6vw,2.3rem)/1.05 var(--display);text-transform:uppercase}
-@media (max-width:760px){.disciplines,.joint{grid-template-columns:minmax(0,1fr)}}
+/* Ficha de proyecto */
+.brief{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,46px);align-items:start}
+.brief-form{display:grid;gap:24px;min-width:0}
+.panel{position:sticky;top:90px;display:grid;gap:17px;padding:clamp(20px,2.6vw,30px);background:var(--slate-grad);color:var(--white);border:1px solid var(--bronze-dark);min-width:0}
+.panel h3{font:700 1.3rem/1.2 var(--serif);color:var(--bronze-light);letter-spacing:.03em}
+.panel .sum{font-size:.93rem;color:var(--on-dark)}
+.svc{display:grid;gap:1px}
+.svc label{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:9px;align-items:start;padding:8px 0;border-bottom:1px solid rgba(197,164,126,.25);font-size:.92rem;line-height:1.35;cursor:pointer}
+.svc input{margin:2px 0 0;width:17px;height:17px;accent-color:var(--bronze)}
+.tagS{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--bronze);padding-top:3px}
+.panel .note{background:rgba(255,255,255,.06);border-left-color:var(--bronze);color:var(--on-dark)}
+.panel input{border-color:var(--bronze-dark)}
+.panel .lbl{color:var(--bronze-light);font-size:.84rem;margin-bottom:5px}
+.panel .err{color:#FFB3A8}
+.send{display:grid;gap:12px}
+.send .btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.send .btn{padding:13px 8px;font-size:.92rem}
+.copy{background:none;border:0;padding:0;color:inherit;font:600 .86rem var(--sans);text-decoration:underline;cursor:pointer;justify-self:start}
+.status{font-size:.88rem;min-height:1.3em}
+@media (max-width:920px){.brief{grid-template-columns:minmax(0,1fr)}.panel{position:static}}
 
 /* Explorador */
 .explorer{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
-.ex-draw{background:var(--sect);border:1.5px solid var(--ink);min-width:0}
+.ex-draw{background:var(--offwhite);border:1px solid var(--bronze-dark);min-width:0}
 .ex-draw svg{display:block;width:100%;height:auto}
-.ex-panel{display:grid;gap:22px;min-width:0}
-fieldset{border:0;margin:0;padding:0;min-width:0}
-legend,.lbl{font:500 .8rem var(--mono);padding:0;margin-bottom:8px;display:block}
-.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--ink)}
-.seg input{position:absolute;opacity:0;width:1px;height:1px}
-.seg label{padding:10px 6px;text-align:center;cursor:pointer;font-weight:700;font-size:.96rem;line-height:1.2;border-right:1.5px solid var(--ink)}
-.seg label:last-of-type{border-right:0}
-.seg label small{display:block;font:400 .7rem var(--mono);margin-top:3px}
-.seg input:checked+label{background:var(--ink);color:var(--sect)}
-.seg input:focus-visible+label{outline:3px solid var(--accent);outline-offset:2px}
-.slider-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.slider-row output{font:800 1.9rem/1 var(--display)}
-input[type=range]{width:100%;accent-color:var(--accent);margin:0;height:28px}
-.res{display:grid;gap:0;border-top:2px solid var(--ink)}
-.res>div{display:grid;grid-template-columns:minmax(0,9rem) minmax(0,1fr);gap:12px;padding-block:10px;border-bottom:1px solid var(--line)}
-.res dt{font:400 .78rem/1.5 var(--mono);color:var(--ink-2)}
-.res dd{font-weight:500;min-width:0}
-.res dd.big{font:800 1.55rem/1.1 var(--display);text-transform:uppercase}
-.res dd small{display:block;font-weight:400;font-size:.9rem;color:var(--ink-2);line-height:1.45;margin-top:3px}
-.chip{display:inline-block;font:500 .76rem/1.3 var(--mono);padding:3px 8px;border:1.5px solid currentColor;margin-bottom:5px}
+.ex-panel{display:grid;gap:20px;min-width:0}
+input[type=range]{width:100%;accent-color:var(--bronze-dark);margin:0;height:28px}
+.slide-h{display:flex;justify-content:space-between;align-items:baseline}
+.slide-h output{font:700 1.8rem/1 var(--serif);color:var(--bronze-text)}
+.res{border-top:2px solid var(--slate-dark)}
+.res>div{display:grid;grid-template-columns:minmax(0,8.5rem) minmax(0,1fr);gap:12px;padding-block:10px;border-bottom:1px solid var(--border)}
+.res dt{font-size:.82rem;font-weight:600;color:var(--muted)}
+.res dd{font-weight:500;min-width:0;font-size:.97rem}
+.res dd.big{font:700 1.16rem/1.25 var(--serif)}
+.res small{display:block;font-weight:400;font-size:.87rem;color:var(--muted);line-height:1.45;margin-top:3px}
+.chip{display:inline-block;font-size:.76rem;font-weight:700;padding:3px 8px;border:1.5px solid currentColor}
 .chip.ok{color:var(--ok)}.chip.warn{color:var(--warn)}.chip.bad{color:var(--bad)}
-.fineprint{font-size:.88rem;line-height:1.5;color:var(--ink-2)}
-@media (max-width:900px){.explorer{grid-template-columns:minmax(0,1fr)}}
+.fine{font-size:.86rem;line-height:1.5;color:var(--muted)}
+.sec-svg text{font-family:var(--sans);font-weight:500;font-size:10.5px;fill:var(--text);paint-order:stroke;stroke:var(--offwhite);stroke-width:3px;stroke-linejoin:round}
+.sec-svg text.bare{stroke:none}.sec-svg text.b{font-weight:700}.sec-svg text.w{fill:var(--water)}.sec-svg text.ac{fill:var(--bronze-text);font-weight:700}
+.sec-svg .h{fill:none;stroke:var(--hatch);stroke-width:1}.sec-svg .hd{fill:var(--hatch)}
+@media (max-width:920px){.explorer{grid-template-columns:minmax(0,1fr)}}
 
-/* Proyectos */
-.filter{display:flex;flex-wrap:wrap;gap:8px}
-.filter button{background:none;border:1.5px solid var(--ink);color:var(--ink);padding:7px 13px;font:500 .92rem var(--body);cursor:pointer}
-.filter button[aria-pressed=true]{background:var(--ink);color:var(--sect)}
-.ledger{border-top:2px solid var(--ink)}
-.ledger details{border-bottom:1px solid var(--ink)}
-.ledger summary{display:grid;grid-template-columns:110px minmax(0,1.5fr) minmax(0,1fr) 24px;gap:clamp(12px,2.4vw,28px);align-items:center;padding-block:14px;cursor:pointer;list-style:none}
-.ledger summary::-webkit-details-marker{display:none}
-.ledger summary svg{display:block;width:110px;height:auto}
-.ledger summary .sign{font:500 1.3rem var(--mono);color:var(--accent);text-align:right}
-.ledger details[open] .sign{transform:rotate(45deg)}
-.p-id{display:block;color:var(--ink-2)}
-.p-name{font-weight:700;font-size:1.14rem;line-height:1.3;display:block;margin-block:2px}
-.ledger summary:hover .p-name{color:var(--accent)}
-.p-more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,3vw,36px);padding:2px 0 22px calc(110px + clamp(12px,2.4vw,28px))}
-.p-more b{display:block;font:500 .78rem var(--mono);color:var(--ink-2);margin-bottom:4px}
-@media (max-width:760px){
-  .ledger summary{grid-template-columns:72px minmax(0,1fr) 20px}
-  .ledger summary svg{width:72px}
-  .ledger summary .p-data{grid-column:2/3;grid-row:2}
-  .p-more{grid-template-columns:minmax(0,1fr);padding-left:0}
-}
+/* Servicios */
+.areas{border-top:2px solid var(--slate-dark)}
+.areas details{border-bottom:1px solid var(--border)}
+.areas summary{display:grid;grid-template-columns:minmax(0,1fr) 22px;gap:14px;padding-block:17px;cursor:pointer;list-style:none;align-items:center}
+.areas summary::-webkit-details-marker{display:none}
+.areas summary small{display:block;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-text);margin-bottom:2px}
+.areas summary b{font:700 1.08rem/1.3 var(--serif)}
+.sign{font-size:1.5rem;line-height:1;color:var(--bronze-text);transition:transform .15s}
+details[open]>summary .sign{transform:rotate(45deg)}
+.areas summary:hover b{color:var(--bronze-text)}
+.area-b{padding:0 0 22px;display:grid;gap:12px;max-width:62rem}
+.bul{display:grid;gap:8px}
+.bul li{padding-left:18px;position:relative}
+.bul li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height:2px;background:var(--bronze-dark)}
 
-/* Proceso */
-.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:2px solid var(--ink)}
-.steps li{padding:16px 16px 4px 0;display:grid;gap:8px;align-content:start;min-width:0}
-.steps li+li{padding-left:16px;border-left:1px solid var(--ink)}
-.steps .n{font:800 2.5rem/1 var(--display);color:var(--accent)}
-.steps p{font-size:.97rem}
-.steps .out{font:400 .76rem/1.45 var(--mono);color:var(--ink-2)}
-@media (max-width:1100px){
-  .steps{grid-template-columns:minmax(0,1fr)}
-  .steps li,.steps li+li{padding:16px 0;border-left:0;border-bottom:1px solid var(--ink)}
-}
+/* Bloques oscuros */
+.thesis{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.thesis-t{display:grid;gap:14px}
+.thesis-t p{color:var(--on-dark)}
+.stat{border:1px solid rgba(197,164,126,.45);background:rgba(255,255,255,.04);padding:26px;text-align:center;display:grid;gap:8px}
+.stat b{font:800 clamp(2.8rem,5.5vw,4.2rem)/1 var(--serif);background:var(--gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--bronze)}
+.stat strong{font:700 .98rem/1.3 var(--serif);color:var(--bronze-light)}
+.stat span{font-size:.88rem;color:var(--on-dark-2);line-height:1.45}
+@media (max-width:820px){.thesis{grid-template-columns:minmax(0,1fr)}}
+
+/* Experiencia */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.case{display:grid;gap:10px;align-content:start;padding:clamp(20px,2.4vw,28px);background:var(--white);border:1px solid var(--border);border-top:3px solid var(--bronze-dark);min-width:0}
+.case h3{font:700 1.04rem/1.35 var(--serif)}
+.case p{font-size:.95rem;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:5px}
+.pill{font-size:.74rem;font-weight:600;padding:3px 8px;background:#E9E4DC;color:var(--slate-dark)}
+.dark .pill{background:rgba(197,164,126,.15);border:1px solid rgba(197,164,126,.4);color:var(--bronze-light)}
+@media (max-width:820px){.cases{grid-template-columns:minmax(0,1fr)}}
 
 /* Tabla */
-.table-box{overflow-x:auto;border-top:2px solid var(--ink)}
-table{border-collapse:collapse;width:100%;min-width:680px}
-th,td{text-align:left;vertical-align:top;padding:12px 18px 12px 0;border-bottom:1px solid var(--ink)}
-th{font:500 .78rem var(--mono);color:var(--ink-2)}
+.table-box{overflow-x:auto;border-top:2px solid var(--slate-dark)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.92rem}
+th{font:700 .82rem var(--serif);letter-spacing:.05em;text-align:left;background:var(--slate-dark);color:var(--bronze-light);padding:11px 13px}
+td{vertical-align:top;padding:12px 13px;border-bottom:1px solid var(--border)}
 td:first-child{font-weight:700}
-td:last-child{font:400 .78rem/1.55 var(--mono);padding-right:0}
+tbody tr:nth-child(even) td{background:var(--offwhite)}
 
-/* Contacto: roca */
-.s-rock{--ink:var(--rock-fg);--ink-2:var(--rock-fg2);--line:var(--rock-line);--accent:var(--rock-accent);--on-accent:var(--rock-on);--sect:var(--rock-bg);background:var(--rock-bg);color:var(--rock-fg);color-scheme:dark}
-.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,72px);align-items:start}
-.contact-info{display:grid;gap:22px;min-width:0}
-.contact-data{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:18px}
-.contact-data div{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:10px;overflow-wrap:anywhere}
-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;min-width:0}
-.f{display:grid;gap:6px;min-width:0}
-.f.full{grid-column:1/-1}
-.f label{font:500 .78rem var(--mono)}
-.f input,.f select,.f textarea{width:100%;background:transparent;color:var(--ink);border:0;border-bottom:1.5px solid var(--ink-2);padding:9px 2px;font:400 1rem var(--body);border-radius:0}
-.f select option{background:var(--rock-bg);color:var(--rock-fg)}
-.f textarea{resize:vertical;min-height:96px;line-height:1.5}
-.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-bottom-color:var(--accent);box-shadow:0 1.5px 0 var(--accent)}
-.f .err{font-size:.85rem;color:#FFB3A8;min-height:0}
-.form-end{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center}
-.form-status{font-size:.95rem;flex:1 1 16rem}
+/* Etapas */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.steps li{display:grid;gap:7px;align-content:start;padding:17px 15px;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--bronze-dark);min-width:0}
+.steps .n{font:800 1.5rem/1 var(--serif);color:var(--bronze-text)}
+.steps p{font-size:.92rem;color:var(--muted);line-height:1.5}
+@media (max-width:1040px){.steps{grid-template-columns:minmax(0,1fr)}}
+
+/* Configurador */
+.config{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(24px,4vw,46px);align-items:start}
+.wizard{display:grid;gap:22px;min-width:0}
+.stepper{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.stepper button{background:none;border:0;border-top:4px solid var(--border);padding:7px 0 0;text-align:left;font:600 .78rem/1.25 var(--sans);color:var(--muted);cursor:pointer}
+.stepper button.done{border-top-color:var(--bronze)}
+.stepper button[aria-current=step]{border-top-color:var(--slate-dark);color:var(--text);font-weight:800}
+.pane{display:grid;gap:20px}
+.pane h3{font:700 1.45rem/1.25 var(--serif)}
+.wiz-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.view-house{position:sticky;top:90px;display:grid;gap:13px;min-width:0}
+.house-box{background:linear-gradient(#EEF3F4,#F7F6F4 75%);border:1px solid var(--border)}
+.house-box svg{display:block;width:100%;height:auto}
+.house-box text{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--text)}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.nums div{background:var(--white);padding:11px 13px;min-width:0}
+.nums dt{font-size:.76rem;font-weight:600;color:var(--muted);line-height:1.3}
+.nums dd{font:800 1.15rem/1.3 var(--sans)}
+.why{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(26px,5vw,64px);align-items:start}
+.why-list{display:grid;gap:18px}
+.why-list li{display:grid;gap:3px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.why-list p{font-size:.95rem;color:var(--muted)}
+@media (max-width:820px){.why{grid-template-columns:minmax(0,1fr)}}
+.extras-chips{display:flex;flex-wrap:wrap;gap:5px}
+.swatch span{display:flex;align-items:center;gap:9px}
+.swatch i{flex:none;width:24px;height:24px;border:1px solid rgba(0,0,0,.35)}
+.summary-card{padding:17px;background:var(--offwhite);border:1px solid var(--border);display:grid;gap:7px;font-size:.95rem}
+.summary-card b{font:700 1.02rem var(--serif)}
+.pane .send .btn.gold{background:var(--slate-dark);color:var(--white);border-color:var(--slate-dark)}
+.pane .send .btn.gold:hover{background:var(--bronze-dark);border-color:var(--bronze-dark)}
+@media (max-width:920px){.config{grid-template-columns:minmax(0,1fr)}.view-house{position:static;order:-1}}
+
+/* Pasos sencillos y preguntas */
+.plain{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+.plain li{display:grid;gap:7px;align-content:start;min-width:0}
+.plain .n{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--slate-dark);color:var(--bronze-light);font:700 1rem var(--serif)}
+.plain p{font-size:.93rem;color:var(--muted);line-height:1.5}
+@media (max-width:1040px){.plain{grid-template-columns:minmax(0,1fr)}.plain li{grid-template-columns:38px minmax(0,1fr);column-gap:13px}.plain h3,.plain p{grid-column:2}.plain .n{grid-row:1/3}}
+.faq{max-width:52rem;border-top:2px solid var(--slate-dark)}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{display:grid;grid-template-columns:minmax(0,1fr) 22px;gap:14px;align-items:center;padding-block:15px;font-weight:700;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{padding-bottom:18px;color:var(--muted)}
+
+/* Equipo */
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.person{display:grid;gap:13px;align-content:start;padding:clamp(20px,2.4vw,28px);background:var(--white);border:1px solid var(--border);border-top:4px solid var(--slate-dark);min-width:0}
+.person-t{display:flex;gap:15px;align-items:center}
+.mono{flex:none;width:68px;height:68px;border-radius:50%;background:var(--slate-grad);border:2px solid var(--bronze);display:grid;place-items:center;font:700 1.25rem var(--serif);color:var(--bronze-light)}
+.person .role{font-size:.72rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--bronze-text)}
+.person h3{font:700 1.06rem/1.3 var(--serif)}
+.person .bul{font-size:.94rem;color:var(--muted)}
+.person a{font-weight:700;color:var(--bronze-text)}
+@media (max-width:820px){.team{grid-template-columns:minmax(0,1fr)}}
+.creds{display:flex;flex-wrap:wrap;gap:6px}
+
+/* Contacto */
+.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(26px,4vw,56px);align-items:center}
+.contact-t{display:grid;gap:14px}
+.contact-t p{color:var(--on-dark)}
+.channels{display:grid;gap:15px;padding:24px;border:1px solid rgba(197,164,126,.45);background:rgba(255,255,255,.04);min-width:0}
+.channels small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--bronze)}
+.channels a,.channels strong{font-weight:600;font-size:1.03rem;text-decoration:none;overflow-wrap:anywhere}
+.channels a:hover{color:var(--bronze-light);text-decoration:underline}
+.channels em{font-style:normal;font-size:.88rem;color:var(--on-dark-2);display:block}
 @media (max-width:820px){.contact{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:520px){form{grid-template-columns:minmax(0,1fr)}}
-.foot{background:var(--rock-bg);color:var(--rock-fg2);border-top:1px solid var(--rock-line);padding-block:20px;font:400 .78rem/1.5 var(--mono)}
-.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 28px}
+.foot{background:var(--slate-dark);color:var(--on-dark-2);border-top:1px solid var(--bronze-dark);padding-block:20px;font-size:.84rem}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 28px}
 </style>
 </head>
 <body>
@@ -253,469 +309,738 @@ form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;min-wid
   <pattern id="pRock" width="28" height="18" patternUnits="userSpaceOnUse"><path class="h" d="M0 9h28M7 0v9M21 9v9"/></pattern>
 </defs></svg>
 
-<div class="notice"><div class="wrap">Demo de diseño. La empresa, los proyectos y los datos de contacto son de ejemplo.</div></div>
-
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Cota y Carga, inicio">
-      <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13V1.5A11.5 11.5 0 0 1 24.5 13zM13 13v11.5A11.5 11.5 0 0 1 1.5 13z" fill="currentColor"/></svg>
-      Cota &amp; Carga
+    <a class="brand" href="#inicio" aria-label="Protándem Ingeniería, inicio">
+      <span class="iso" aria-hidden="true">P</span>
+      <span class="wordmark"><b>PROTÁNDEM</b><span>INGENIERÍA</span></span>
     </a>
-    <span class="depth-pill" id="depthPill" aria-hidden="true">Cota ±0.00</span>
-    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
-    <nav class="nav" id="nav" aria-label="Principal">
-      <a href="#servicios">Servicios</a>
-      <a href="#explorador">Explorador de subsuelo</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#proceso">Proceso</a>
-      <a href="#alcance">Alcance técnico</a>
-      <a class="btn" href="#contacto">Solicitar propuesta</a>
+    <nav class="routes" aria-label="Elige tu camino">
+      <a href="#proyecto" data-route="proyecto">Empresas</a>
+      <a href="#casa" data-route="casa">Mi casa</a>
     </nav>
   </div>
 </header>
 
-<aside class="rail" aria-label="Profundidad de la página">
-  <div class="rail-read" aria-hidden="true"><b id="railDepth">±0.00</b><span id="railName">Superficie</span></div>
-  <div class="rail-col" id="railCol"></div>
-  <div class="rail-end">−60 m</div>
-</aside>
+<main>
 
-<main id="inicio">
-
-<section class="hero">
+<!-- ============ INICIO ============ -->
+<section class="hero dark" data-show="inicio">
   <div class="wrap">
-    <div class="hero-copy">
-      <p class="stratum">Ingeniería estructural y geotécnica</p>
-      <h1>Calculamos la estructura y el suelo que la sostiene</h1>
-      <p class="lede">Un solo equipo resuelve la exploración, la cimentación y la superestructura. El modelo del edificio y el del terreno trabajan con los mismos datos desde el primer día.</p>
-      <div class="cta">
-        <a class="btn" href="#explorador">Probar el explorador de subsuelo</a>
-        <a class="btn ghost" href="#contacto">Solicitar propuesta</a>
-      </div>
-      <ol class="chain" aria-label="Etapas de trabajo">
-        <li>Exploración</li><li>Laboratorio</li><li>Diseño</li><li>Supervisión</li>
-      </ol>
+    <div class="hero-t">
+      <p class="pillars">ESTRUCTURAS &nbsp;|&nbsp; GEOTECNIA &nbsp;|&nbsp; INFRAESTRUCTURA</p>
+      <h1>¿Qué vas a construir?</h1>
+      <p class="lede">Elige la opción que más se parezca a tu caso y te llevamos por el camino correcto.</p>
     </div>
-    <svg class="sec-svg draw-in" id="heroSvg" role="img" aria-label="Corte de un edificio de 18 niveles con cajón de cimentación y pilotes apoyados en la capa dura del subsuelo lacustre."></svg>
-  </div>
-</section>
-
-<div class="band sf-crust" aria-hidden="true"><div class="hatch m-sand"></div></div>
-
-<section class="sect" id="servicios" style="--sect:var(--s2)" data-from="0" data-to="5" data-name="Relleno y costra" data-soil="crust" data-mask="sand">
-  <div class="wrap">
-    <div class="head">
-      <p class="stratum">0.0 a −5.0 m · Relleno y costra</p>
-      <h2>Dos disciplinas, una sola respuesta de ingeniería</h2>
-      <p class="muted">Atendemos a desarrolladores, constructoras y despachos de arquitectura desde el estudio de factibilidad hasta la supervisión en obra.</p>
-    </div>
-    <div class="disciplines">
-      <div class="disc">
-        <h3>Estructuras</h3>
-        <ul>
-          <li><b>Diseño de edificios e industria</b><span>Concreto, acero y sistemas mixtos, con memoria de cálculo y planos para construcción.</span></li>
-          <li><b>Análisis sísmico y por viento</b><span>Modelos espectrales y análisis no lineal paso a paso para estructuras importantes.</span></li>
-          <li><b>Revisión y dictamen</b><span>Evaluación de seguridad de inmuebles existentes y dictámenes después de un sismo.</span></li>
-          <li><b>Refuerzo y rehabilitación</b><span>Encamisados, contravientos restringidos al pandeo y disipación de energía.</span></li>
-        </ul>
-      </div>
-      <div class="disc">
-        <h3>Geotecnia</h3>
-        <ul>
-          <li><b>Exploración y laboratorio</b><span>Sondeos SPT y CPTu, muestreo inalterado, geofísica y ensayes de resistencia y consolidación.</span></li>
-          <li><b>Diseño de cimentaciones</b><span>Zapatas, losas, cajones compensados, pilotes y pilas, con revisión de asentamientos.</span></li>
-          <li><b>Excavaciones y estabilidad</b><span>Muro Milán, anclajes, bombeo y estabilización de taludes.</span></li>
-          <li><b>Pruebas e instrumentación</b><span>Pruebas de carga en pilotes, inclinómetros, piezómetros y bancos de nivel.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="joint">
-      <h3>Interacción suelo-estructura</h3>
-      <p>Una cimentación rígida cambia cómo responde el edificio, y el edificio cambia lo que recibe el suelo. Por eso revisamos los dos modelos en conjunto, en especial en suelos blandos, donde esa interacción define el diseño.</p>
+    <div class="doors">
+      <a class="door" href="#proyecto">
+        <svg viewBox="0 0 420 170" aria-hidden="true" fill="none" stroke="#C5A47E" stroke-width="1.5">
+          <path d="M0 112h420" stroke-width="2"/>
+          <path d="M150 112V14h120v98M150 30h120M150 46h120M150 62h120M150 78h120M150 94h120M174 14v98M198 14v98M222 14v98M246 14v98"/>
+          <path d="M146 112h128v14H146zM156 126v38M180 126v38M204 126v38M228 126v38M252 126v38M264 126v38" stroke="#E2C9A6"/>
+          <path d="M20 134h120M280 134h120M40 150h90M290 150h110" stroke-dasharray="10 8" opacity=".55"/>
+        </svg>
+        <span class="who">Constructoras, inmobiliarias y desarrolladores</span>
+        <h2>Tengo un proyecto en puerta</h2>
+        <p>Ya sabes la ubicación, el tamaño o el tipo de obra. Arma tu ficha técnica en dos minutos.</p>
+        <ul><li>Alcance sugerido según la etapa de tu proyecto</li><li>Explorador de cimentaciones</li><li>Experiencia, software y normas</li></ul>
+        <span class="go">Armar la ficha de mi proyecto →</span>
+      </a>
+      <a class="door" href="#casa">
+        <svg viewBox="0 0 420 170" aria-hidden="true" fill="none" stroke="#C5A47E" stroke-width="1.5">
+          <path d="M0 122h420" stroke-width="2"/>
+          <path d="M120 122V62h180v60M108 62l102-44 102 44" stroke-linejoin="round"/>
+          <path d="M140 80h34v24h-34zM246 80h34v24h-34zM194 122V84h32v38"/>
+          <path d="M70 122V96M70 96c-15-4-15-27 0-31 15 4 15 27 0 31zM350 122V100M350 100c-13-4-13-23 0-27 13 4 13 23 0 27z"/>
+          <path d="M116 122h188v10H116z" stroke="#E2C9A6"/>
+          <path d="M20 146h90M310 146h90M140 156h140" stroke-dasharray="10 8" opacity=".55"/>
+        </svg>
+        <span class="who">Familias y personas sin conocimientos de ingeniería</span>
+        <h2>Quiero construir mi casa</h2>
+        <p>No necesitas saber de planos ni de ingeniería. Elige lo que quieres y mira cómo va quedando.</p>
+        <ul><li>Recámaras, baños, estilo y fachada a tu gusto</li><li>Un dibujo de tu casa que cambia con cada opción</li><li>Lo revisas con un ingeniero, sin compromiso</li></ul>
+        <span class="go">Empezar a diseñar mi casa →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<div class="band sf-clay" aria-hidden="true"><div class="hatch m-clay"></div></div>
+<section class="sect" data-show="inicio">
+  <div class="wrap">
+    <div class="why">
+      <div class="head">
+        <p class="eyebrow">Por qué Protándem</p>
+        <h2>Geotecnia, estructuras y obra bajo un mismo tándem</h2>
+        <div class="rule"></div>
+        <p class="lede muted">Cuando el suelo, el cálculo y la construcción se contratan por separado aparecen contradicciones en planos, sobrecostos e indefiniciones en obra. Nosotros acompañamos cada proyecto desde la exploración del terreno hasta la asistencia posterior a la entrega.</p>
+      </div>
+      <ul class="why-list">
+        <li><h3>Cero choques entre disciplinas</h3><p>El geotecnista y el estructurista diseñan sobre el mismo modelo de interacción suelo-estructura.</p></li>
+        <li><h3>Trato directo con los especialistas</h3><p>Hablas con los responsables del diseño, la optimización económica y la ejecución en obra.</p></li>
+        <li><h3>Presencia en todo el país</h3><p>Desplazamos brigadas y directores de área a cualquier punto de México.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-<section class="sect" id="explorador" style="--sect:var(--s3)" data-from="5" data-to="32" data-name="Serie arcillosa" data-soil="clay" data-mask="clay">
+<!-- ============ EMPRESAS ============ -->
+<section class="intro dark" data-show="proyecto">
+  <div class="wrap">
+    <p class="eyebrow">Constructoras, inmobiliarias y desarrolladores</p>
+    <h1>Tu proyecto, sin choques entre disciplinas</h1>
+    <p class="lede">Describe tu obra y obtén un alcance sugerido para llevar a la mesa técnica. Consultoría, proyecto ejecutivo y obra llave en mano en toda la República Mexicana.</p>
+  </div>
+</section>
+<nav class="subnav" data-show="proyecto" aria-label="Secciones para empresas">
+  <div class="wrap"><ul>
+    <li><a href="#ficha">Ficha de proyecto</a></li><li><a href="#explorador">Explorador</a></li><li><a href="#factor">Factor miedo</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#experiencia">Experiencia</a></li><li><a href="#capacidad">Capacidad técnica</a></li><li><a href="#metodo">Metodología</a></li><li><a href="#equipo">Dirección</a></li>
+  </ul></div>
+</nav>
+
+<section class="sect" id="ficha" data-show="proyecto">
   <div class="wrap">
     <div class="head">
-      <p class="stratum">−5.0 a −32.0 m · Serie arcillosa</p>
-      <h2>El mismo edificio pide otra cimentación según el suelo</h2>
-      <p class="muted">Cambia la zona y el número de niveles. El corte se dibuja a escala con un perfil tipo de la Ciudad de México y muestra una primera idea de cimentación.</p>
+      <h2>Ficha de proyecto</h2>
+      <p class="muted">El alcance se actualiza con cada respuesta. Puedes marcar o quitar lo que quieras.</p>
+    </div>
+    <div class="brief">
+      <form class="brief-form" id="briefForm" novalidate>
+        <fieldset>
+          <legend>Tipo de obra</legend>
+          <div class="opts" id="pType" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))"></div>
+        </fieldset>
+        <fieldset>
+          <legend>¿En qué etapa está?</legend>
+          <div class="opts" id="pStage" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div>
+        </fieldset>
+        <div class="grid-f">
+          <div class="full"><label class="lbl" for="pLoc">Ubicación<span class="help">Ciudad, municipio o colonia</span></label><input type="text" id="pLoc" placeholder="Por ejemplo: Tlalnepantla, Estado de México"></div>
+          <div><label class="lbl" for="pArea">Superficie de construcción (m²)</label><input type="number" id="pArea" min="0" step="50" value="4500"></div>
+          <div><label class="lbl" for="pLand">Superficie del predio (m²)</label><input type="number" id="pLand" min="0" step="50" value="1200"></div>
+          <div data-vertical><label class="lbl" for="pLevels">Niveles sobre terreno</label><input type="number" id="pLevels" min="1" max="80" value="8"></div>
+          <div data-vertical><label class="lbl" for="pBase">Sótanos</label><input type="number" id="pBase" min="0" max="12" value="2"></div>
+          <div class="full"><label class="lbl" for="pNote">Algo más que debamos saber <span class="help" style="display:inline">(opcional)</span></label><textarea id="pNote" rows="3" placeholder="Fechas, colindancias, problemas detectados, licitación…"></textarea></div>
+        </div>
+      </form>
+      <aside class="panel" aria-live="polite">
+        <div>
+          <h3>Alcance sugerido</h3>
+          <p class="sum" id="pSum"></p>
+        </div>
+        <div class="svc" id="pSvc"></div>
+        <p class="note" id="pNext"></p>
+        <div class="send">
+          <div class="grid-f">
+            <div><label class="lbl" for="pName">Tu nombre</label><input type="text" id="pName" autocomplete="name"></div>
+            <div><label class="lbl" for="pCo">Empresa</label><input type="text" id="pCo" autocomplete="organization"></div>
+            <div class="full"><label class="lbl" for="pContact">Teléfono o correo</label><input type="text" id="pContact" autocomplete="email"></div>
+          </div>
+          <p class="err" id="pErr" role="alert"></p>
+          <div class="btns">
+            <a class="btn gold" id="pMail" href="#">Enviar por correo</a>
+            <a class="btn gold" id="pWa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+          </div>
+          <button class="copy" type="button" id="pCopy">Copiar la ficha</button>
+          <p class="status" id="pStatus" role="status"></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sect alt" id="explorador" data-show="proyecto">
+  <div class="wrap">
+    <div class="head">
+      <h2>Explorador de cimentaciones</h2>
+      <p class="muted">El mismo edificio pide otra cimentación según el suelo. Cambia la zona y los niveles para ver una primera lectura con perfiles tipo de la Ciudad de México.</p>
     </div>
     <div class="explorer">
       <div class="ex-draw"><svg class="sec-svg" id="exSvg" role="img"></svg></div>
       <div class="ex-panel">
         <fieldset>
           <legend>Zona geotécnica</legend>
-          <div class="seg">
-            <input type="radio" name="zone" id="z-lomas" value="lomas"><label for="z-lomas">Lomas<small>Zona I</small></label>
-            <input type="radio" name="zone" id="z-trans" value="trans"><label for="z-trans">Transición<small>Zona II</small></label>
-            <input type="radio" name="zone" id="z-lac" value="lac" checked><label for="z-lac">Lacustre<small>Zona III</small></label>
+          <div class="opts" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+            <label class="opt"><input type="radio" name="zone" id="z-lomas" value="lomas"><span>Lomas<small>Zona I</small></span></label>
+            <label class="opt"><input type="radio" name="zone" id="z-trans" value="trans"><span>Transición<small>Zona II</small></span></label>
+            <label class="opt"><input type="radio" name="zone" id="z-lac" value="lac" checked><span>Lacustre<small>Zona III</small></span></label>
           </div>
         </fieldset>
         <div>
-          <div class="slider-row"><label class="lbl" for="lv">Niveles sobre terreno</label><output id="lvOut" for="lv">12</output></div>
+          <div class="slide-h"><label class="lbl" for="lv">Niveles sobre terreno</label><output id="lvOut" for="lv">12</output></div>
           <input type="range" id="lv" min="1" max="25" step="1" value="12">
         </div>
         <dl class="res" aria-live="polite">
           <div><dt>Cimentación probable</dt><dd class="big" id="rFound"></dd></div>
-          <div><dt>Por qué revisar</dt><dd id="rNote"></dd></div>
+          <div><dt>Qué revisar</dt><dd id="rNote"></dd></div>
           <div><dt>Periodos</dt><dd id="rPer"></dd></div>
           <div><dt>Exploración sugerida</dt><dd id="rExp"></dd></div>
         </dl>
-        <div class="cta"><a class="btn" href="#contacto" id="toForm">Solicitar estudio para este caso</a></div>
-        <p class="fineprint">Herramienta ilustrativa con perfiles y reglas simplificadas. No sustituye un estudio de mecánica de suelos ni un diseño firmado. El periodo del edificio usa la regla práctica T ≈ 0.1 N.</p>
+        <p class="fine">Herramienta ilustrativa con perfiles y reglas simplificadas. No sustituye un estudio de mecánica de suelos ni un diseño firmado. El periodo del edificio usa la regla práctica T ≈ 0.1 N.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="band sf-sand" aria-hidden="true"><div class="hatch m-sand"></div></div>
-
-<section class="sect" id="proyectos" style="--sect:var(--s4)" data-from="32" data-to="36" data-name="Capa dura" data-soil="sand" data-mask="sand">
+<section class="sect dark" id="factor" data-show="proyecto inicio">
   <div class="wrap">
-    <div class="head">
-      <p class="stratum">−32.0 a −36.0 m · Capa dura</p>
-      <h2>Proyectos</h2>
-      <p class="muted">Seis casos de ejemplo. Abre cada uno para ver el reto y la solución.</p>
+    <div class="thesis">
+      <div class="thesis-t">
+        <p class="eyebrow">Ventaja competitiva diferenciadora</p>
+        <h2>Erradicamos el “factor miedo” en la ingeniería</h2>
+        <p>Es común encontrar estructuras y cimentaciones sobredimensionadas con el pretexto de la seguridad. Ese factor miedo nace de la incertidumbre técnica.</p>
+        <p>Respaldamos cada decisión con modelado numérico avanzado y pruebas reales de campo y laboratorio. El resultado son estructuras seguras, resilientes y libres de acero o concreto innecesario.</p>
+      </div>
+      <div class="stat"><b>~10%</b><strong>Reducción en el costo global del proyecto</strong><span>En el proyecto ejecutivo y en los volúmenes de obra, al unificar las disciplinas bajo un mismo techo directivo.</span></div>
     </div>
-    <div class="filter" role="group" aria-label="Filtrar proyectos por disciplina">
-      <button type="button" data-f="all" aria-pressed="true">Todos</button>
-      <button type="button" data-f="est" aria-pressed="false">Estructuras</button>
-      <button type="button" data-f="geo" aria-pressed="false">Geotecnia</button>
-    </div>
-    <div class="ledger" id="ledger"></div>
   </div>
 </section>
 
-<div class="band sf-clay" aria-hidden="true"><div class="hatch m-clay"></div></div>
+<section class="sect" id="servicios" data-show="proyecto">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Líneas de negocio</p><h2>Siete áreas, un solo equipo directivo</h2></div>
+    <div class="areas" id="areas"></div>
+  </div>
+</section>
 
-<section class="sect" id="proceso" style="--sect:var(--s4)" data-from="36" data-to="48" data-name="Serie arcillosa inferior" data-soil="clay" data-mask="clay">
+<section class="sect alt" id="experiencia" data-show="proyecto">
   <div class="wrap">
     <div class="head">
-      <p class="stratum">−36.0 a −48.0 m · Serie arcillosa inferior</p>
-      <h2>Del primer sondeo a la última revisión en obra</h2>
+      <p class="eyebrow">Respaldo técnico en proyectos de gran escala</p>
+      <h2>Experiencia destacada de nuestros directores</h2>
+      <p class="muted">Proyectos en los que han participado nuestros directores, incluidos los desarrollados en las firmas que se indican.</p>
     </div>
+    <div class="cases">
+      <article class="case"><p class="eyebrow">Infraestructura ferroviaria · TYLin México</p><h3>Tren Saltillo–Nuevo Laredo, Querétaro–Irapuato y Línea K</h3><p>Campañas masivas de exploración con 400 sondeos SPT y presiómetros y 24 brigadas de perforación. Cimentaciones profundas con pilas coladas in situ, simulación de pruebas de carga en PLAXIS 3D y automatización con Python para puentes cajón y ODTs.</p><div class="pills"><span class="pill">PLAXIS 2D/3D</span><span class="pill">LPILE y SHAFT</span><span class="pill">+400 sondeos</span><span class="pill">AASHTO LRFD</span></div></article>
+      <article class="case"><p class="eyebrow">Transporte masivo · SENER</p><h3>Estaciones, edículos y pasarelas del Metro de Monterrey</h3><p>Modelos tridimensionales en concreto reforzado y acero, análisis estático y modal espectral, control de derivas y efectos de segundo orden. Interacción suelo-estructura y diseño de conexiones, placas base y anclajes.</p><div class="pills"><span class="pill">SAP2000 / ETABS</span><span class="pill">IDEA StatiCa</span><span class="pill">ISE sísmico</span><span class="pill">AISC / ACI / CFE</span></div></article>
+      <article class="case"><p class="eyebrow">Geotecnia extrema y edificación · CDMX y zona metropolitana</p><h3>Cimentación sobre 19 metros de relleno sanitario y optimización de vivienda</h3><p>Pilotes colados in situ en Iztapalapa (Padilla y Asociados) a través de 19 metros de relleno sanitario bajo NTC-CDMX 2023. En edificación habitacional (Rockline Engineering y proyectos privados), diseño por capacidad y optimización económica con curvas costo-resistencia.</p><div class="pills"><span class="pill">NTC-CDMX 2023</span><span class="pill">Pilotes in situ</span><span class="pill">Diseño por capacidad</span><span class="pill">Optimización de costos</span></div></article>
+      <article class="case"><p class="eyebrow">Minería, túneles e hidrología</p><h3>Mina Peñasquito, túneles en roca y simulación hidráulica en Monterrey</h3><p>Levantamientos con drones, estación total y GPS, y pruebas triaxiales en Mina Peñasquito, Zacatecas (Newmont). Modelado de túneles en PLAXIS 2D y simulación 2D de inundaciones por el Huracán Alberto, publicada en Urban Water Journal.</p><div class="pills"><span class="pill">Mecánica de rocas</span><span class="pill">Iber 2D / HEC-RAS</span><span class="pill">Urban Water Journal</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="capacidad" data-show="proyecto">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Músculo técnico</p><h2>Software especializado y marco normativo</h2><p class="muted">Memorias en LaTeX y planos en AutoCAD y Revit, listos para revisión de Corresponsables en Seguridad Estructural, Directores Responsables de Obra y dependencias.</p></div>
+    <div class="table-box"><table>
+      <thead><tr><th scope="col">Disciplina</th><th scope="col">Herramientas</th><th scope="col">Códigos y normas</th></tr></thead>
+      <tbody>
+        <tr><td>Geotecnia, túneles y cimentaciones</td><td>PLAXIS 2D y 3D, LPILE, SHAFT, GeoStudio (Slope/W, Seep/W), automatización en Python</td><td>NTC-CDMX 2023 (Cimentaciones), Manual de Obras Civiles CFE, AASHTO LRFD (2024), normas ASTM</td></tr>
+        <tr><td>Ingeniería estructural y conexiones</td><td>SAP2000, ETABS, IDEA StatiCa, RAM Connection, Revit Structure</td><td>NTC-CDMX 2023 (Sismo, Concreto, Acero), MOC-CFE, ACI 318, AISC 360 / 341</td></tr>
+        <tr><td>Hidrología, hidráulica y geomática</td><td>Iber, HEC-RAS, EPANET, QGIS, Civil 3D, fotogrametría con drones</td><td>Lineamientos CONAGUA, manuales de drenaje SCT/SICT, criterios de hidrología urbana</td></tr>
+        <tr><td>Documentación, costos y construcción</td><td>LaTeX / Overleaf, AutoCAD, Microsoft Project, precios unitarios</td><td>Ley de Obras Públicas y Servicios Relacionados, reglamentos locales, NOM-031-STPS</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="sect alt" id="metodo" data-show="proyecto">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Protocolo de ejecución integral</p><h2>Metodología en cinco etapas</h2></div>
     <ol class="steps">
-      <li><span class="n">1</span><h3>Exploración</h3><p>Definimos la campaña según la zona, la carga y las colindancias.</p><span class="out">Entrega: registro de sondeos</span></li>
-      <li><span class="n">2</span><h3>Laboratorio</h3><p>Ensayamos las muestras y armamos el modelo geotécnico del sitio.</p><span class="out">Entrega: estudio de mecánica de suelos</span></li>
-      <li><span class="n">3</span><h3>Análisis</h3><p>Comparamos alternativas de cimentación con el modelo del edificio.</p><span class="out">Entrega: comparativa técnica y de costo</span></li>
-      <li><span class="n">4</span><h3>Proyecto</h3><p>Desarrollamos memoria y planos, y atendemos el trámite con el corresponsable.</p><span class="out">Entrega: proyecto ejecutivo</span></li>
-      <li><span class="n">5</span><h3>Obra</h3><p>Supervisamos los puntos críticos y medimos el comportamiento real.</p><span class="out">Entrega: reportes de instrumentación</span></li>
+      <li><span class="n">01</span><h3>Diagnóstico y campo</h3><p>Visita técnica, topografía con dron, exploración geotécnica, laboratorio y estudio hidrológico.</p></li>
+      <li><span class="n">02</span><h3>Modelado en tándem</h3><p>Geotecnia y estructuras acopladas mediante interacción suelo-estructura.</p></li>
+      <li><span class="n">03</span><h3>Ingeniería de valor</h3><p>Curvas costo-resistencia, instalaciones sin interferencias BIM, memorias, planos, catálogo y presupuesto base.</p></li>
+      <li><span class="n">04</span><h3>Ejecución de obra</h3><p>Construcción llave en mano o supervisión especializada, con control de calidad y de programa.</p></li>
+      <li><span class="n">05</span><h3>Entrega y post-obra</h3><p>Cierre administrativo, planos As-Built, dictámenes y asistencia técnica continua.</p></li>
     </ol>
   </div>
 </section>
 
-<div class="band sf-deep" aria-hidden="true"><div class="hatch m-sand"></div></div>
-
-<section class="sect" id="alcance" style="--sect:var(--s5)" data-from="48" data-to="56" data-name="Depósitos profundos" data-soil="deep" data-mask="sand">
+<!-- ============ MI CASA ============ -->
+<section class="intro dark" data-show="casa">
   <div class="wrap">
-    <div class="head">
-      <p class="stratum">−48.0 a −56.0 m · Depósitos profundos</p>
-      <h2>Alcance técnico</h2>
-      <p class="muted">Normas y programas de referencia que un revisor espera encontrar en la memoria.</p>
-    </div>
-    <div class="table-box">
-      <table>
-        <thead><tr><th scope="col">Actividad</th><th scope="col">Qué se entrega</th><th scope="col">Referencias</th></tr></thead>
-        <tbody>
-          <tr><td>Exploración de campo</td><td>Perfil estratigráfico y propiedades índice</td><td>ASTM D1586 (SPT), ASTM D5778 (CPTu)</td></tr>
-          <tr><td>Laboratorio</td><td>Parámetros de resistencia y compresibilidad</td><td>ASTM D2435, ASTM D2850, ASTM D4767</td></tr>
-          <tr><td>Cimentaciones</td><td>Capacidad de carga, asentamientos y detalle</td><td>NTC Cimentaciones CDMX, Manual CFE, PLAXIS</td></tr>
-          <tr><td>Pilotes</td><td>Prueba de carga e interpretación</td><td>ASTM D1143, ASTM D4945</td></tr>
-          <tr><td>Análisis sísmico</td><td>Espectro de sitio, modelo y revisión de distorsiones</td><td>NTC Sismo CDMX, Manual CFE, ETABS</td></tr>
-          <tr><td>Diseño de elementos</td><td>Memoria de cálculo y planos estructurales</td><td>NTC Concreto y Acero, ACI 318, AISC 360, SAFE</td></tr>
-        </tbody>
-      </table>
+    <p class="eyebrow">Para ti y tu familia</p>
+    <h1>Diseña la casa que quieres</h1>
+    <p class="lede">Responde cinco preguntas sencillas y mira cómo va tomando forma. No necesitas saber de ingeniería: de eso nos encargamos nosotros.</p>
+  </div>
+</section>
+
+<section class="sect" id="configurador" data-show="casa">
+  <div class="wrap">
+    <div class="config">
+      <div class="wizard">
+        <div class="stepper" id="stepper" role="group" aria-label="Pasos"></div>
+
+        <div class="pane" data-pane="0">
+          <h3>Empecemos por tu terreno</h3>
+          <fieldset><legend>¿Ya tienes terreno?</legend>
+            <div class="opts" id="hLot"></div>
+          </fieldset>
+          <div class="grid-f">
+            <div class="full"><label class="lbl" for="hLoc">¿Dónde sería?<span class="help">Ciudad o municipio. Si no lo sabes aún, déjalo en blanco.</span></label><input type="text" id="hLoc" placeholder="Por ejemplo: Toluca"></div>
+            <div class="full" id="hLandBox"><label class="lbl" for="hLand">¿Cuánto mide, aproximadamente?<span class="help">En metros cuadrados. Viene en tus escrituras o multiplica frente por fondo.</span></label><input type="number" id="hLand" min="0" step="10" value="200"></div>
+          </div>
+        </div>
+
+        <div class="pane" data-pane="1" hidden>
+          <h3>¿Cuántos espacios necesitas?</h3>
+          <fieldset><legend>Pisos de la casa</legend>
+            <div class="opts" id="hFloors" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+          </fieldset>
+          <div id="hCounters"></div>
+        </div>
+
+        <div class="pane" data-pane="2" hidden>
+          <h3>¿Qué más te gustaría tener?</h3>
+          <p class="muted">Marca todo lo que te guste. Luego decidimos juntos qué conviene.</p>
+          <div class="opts" id="hExtras"></div>
+          <p class="note" id="hRoofNote" hidden>Un roof garden necesita azotea plana. Elige un estilo con techo plano en el siguiente paso o lo vemos contigo.</p>
+        </div>
+
+        <div class="pane" data-pane="3" hidden>
+          <h3>¿Cómo te imaginas que se vea?</h3>
+          <fieldset><legend>Estilo</legend><div class="opts" id="hStyle"></div></fieldset>
+          <fieldset><legend>Fachada</legend><div class="opts" id="hFacade"></div></fieldset>
+        </div>
+
+        <div class="pane" data-pane="4" hidden>
+          <h3>Último paso: envíanos tu idea</h3>
+          <div class="grid-f">
+            <div><label class="lbl" for="hBudget">Presupuesto aproximado</label><select id="hBudget"><option>Aún no lo sé</option><option>Hasta $2 millones</option><option>De $2 a $4 millones</option><option>De $4 a $7 millones</option><option>Más de $7 millones</option></select></div>
+            <div><label class="lbl" for="hWhen">¿Cuándo te gustaría empezar?</label><select id="hWhen"><option>Solo estoy explorando</option><option>En los próximos 3 meses</option><option>En 3 a 6 meses</option><option>En más de 6 meses</option></select></div>
+          </div>
+          <div class="summary-card"><b>Tu casa</b><span id="hSummary"></span></div>
+          <div class="send">
+            <div class="grid-f">
+              <div><label class="lbl" for="hName">Tu nombre</label><input type="text" id="hName" autocomplete="name"></div>
+              <div><label class="lbl" for="hContact">Teléfono o correo</label><input type="text" id="hContact" autocomplete="tel"></div>
+              <div class="full"><label class="lbl" for="hNote">Cuéntanos algo más <span class="help" style="display:inline">(opcional)</span></label><textarea id="hNote" rows="3" placeholder="Por ejemplo: mis papás vivirán con nosotros y necesitan una recámara en planta baja"></textarea></div>
+            </div>
+            <p class="err" id="hErr" role="alert"></p>
+            <div class="btns">
+              <a class="btn gold" id="hWa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+              <a class="btn line" id="hMail" href="#">Enviar por correo</a>
+            </div>
+            <button class="copy" type="button" id="hCopy">Copiar mi resumen</button>
+            <p class="status" id="hStatus" role="status"></p>
+          </div>
+        </div>
+
+        <div class="wiz-nav">
+          <button class="btn line" type="button" id="wBack">← Atrás</button>
+          <button class="btn" type="button" id="wNext">Siguiente →</button>
+        </div>
+      </div>
+
+      <div class="view-house">
+        <div class="house-box"><svg id="houseSvg" role="img"></svg></div>
+        <dl class="nums">
+          <div><dt>Construcción aproximada</dt><dd id="nArea"></dd></div>
+          <div><dt>Pisos</dt><dd id="nFloors"></dd></div>
+          <div><dt>Recámaras y baños</dt><dd id="nRooms"></dd></div>
+        </dl>
+        <div class="extras-chips" id="hChips"></div>
+        <p class="note" id="hFit"></p>
+        <p class="fine">Dibujo y medidas orientativos para platicar tu idea. El diseño y el costo reales se definen después de conocer tu terreno.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="band sf-rock" aria-hidden="true"><div class="hatch m-rock"></div></div>
+<section class="sect alt" data-show="casa">
+  <div class="wrap">
+    <div class="head"><h2>Qué pasa después</h2><p class="muted">Sin tecnicismos: así avanzamos contigo.</p></div>
+    <ol class="plain">
+      <li><span class="n">1</span><h3>Conocemos tu terreno</h3><p>Platicamos de tu idea, visitamos el lugar y lo medimos.</p></li>
+      <li><span class="n">2</span><h3>Estudiamos el suelo</h3><p>Revisamos qué hay debajo para saber cómo debe apoyarse tu casa.</p></li>
+      <li><span class="n">3</span><h3>Diseñamos y presupuestamos</h3><p>Afinamos el proyecto y te entregamos planos y presupuesto.</p></li>
+      <li><span class="n">4</span><h3>Construimos</h3><p>Nos encargamos de toda la obra o supervisamos a tu constructor.</p></li>
+      <li><span class="n">5</span><h3>Te entregamos y seguimos cerca</h3><p>Recibes los planos de lo que se construyó y puedes contar con nuestra asistencia técnica.</p></li>
+    </ol>
+  </div>
+</section>
 
-<section class="sect s-rock" id="contacto" data-from="56" data-to="60" data-name="Terreno firme" data-soil="rock" data-mask="rock">
+<section class="sect" data-show="casa">
+  <div class="wrap">
+    <div class="head"><h2>Preguntas frecuentes</h2></div>
+    <div class="faq">
+      <details><summary>No sé nada de construcción. ¿Puedo empezar así?<span class="sign" aria-hidden="true">+</span></summary><p>Sí. Solo necesitamos saber cómo quieres vivir. Nosotros traducimos tu idea a planos y cálculos, y te explicamos cada decisión con palabras claras.</p></details>
+      <details><summary>¿Por qué hay que estudiar el suelo?<span class="sign" aria-hidden="true">+</span></summary><p>Porque la misma casa puede necesitar una cimentación distinta según el terreno. Medirlo evita grietas por hundimientos y también evita pagar acero y concreto que tu casa no necesita.</p></details>
+      <details><summary>¿Cuánto cuesta?<span class="sign" aria-hidden="true">+</span></summary><p>Depende del terreno, del tamaño y de los acabados, por eso no damos un precio fijo en línea. Con tu idea y una visita al lugar podemos preparar un presupuesto para tu caso.</p></details>
+      <details><summary>¿Ustedes construyen o solo hacen los planos?<span class="sign" aria-hidden="true">+</span></summary><p>Las dos cosas. Podemos entregarte la casa llave en mano, o hacer el proyecto y supervisar la obra si ya tienes constructor.</p></details>
+      <details><summary>¿Qué documentos recibo?<span class="sign" aria-hidden="true">+</span></summary><p>Según lo que contrates: estudio del terreno, planos, memoria de cálculo y presupuesto. Al terminar la obra, también los planos de lo que realmente se construyó.</p></details>
+      <details><summary>¿Trabajan fuera de la Ciudad de México?<span class="sign" aria-hidden="true">+</span></summary><p>Sí. Nuestra sede está en la Ciudad de México y podemos ir a cualquier punto del país.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARTIDO ============ -->
+<section class="sect" id="equipo" data-show="proyecto casa inicio" style="background:var(--offwhite)">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Quién te atiende</p>
+      <h2>Tratas directamente con los especialistas</h2>
+      <p class="muted">Los socios fundadores dirigen la empresa y son los responsables del diseño, la optimización económica y la ejecución en obra.</p>
+    </div>
+    <div class="team">
+      <article class="person">
+        <div class="person-t"><span class="mono" aria-hidden="true">AG</span><div><p class="role">Director de Geotecnia e Infraestructura</p><h3>Ing. Alan Jared Gris Medina</h3><p class="muted" style="font-size:.9rem">Ingeniero Civil Geotecnista, UNAM</p></div></div>
+        <ul class="bul">
+          <li>Cimentaciones profundas, taludes, interacción suelo-estructura y campañas masivas de exploración.</li>
+          <li>Coautor e investigador de la obra técnica “Comportamiento de los Suelos”.</li>
+          <li>Especialización en Mecánica de Suelos, Pontificia Universidad Católica de Chile.</li>
+        </ul>
+        <a href="tel:+525530695845">55 3069 5845</a>
+      </article>
+      <article class="person">
+        <div class="person-t"><span class="mono" aria-hidden="true">VR</span><div><p class="role">Director de Estructuras e Hidrología</p><h3>Ing. Víctor Hugo Adrián Rosales Magaña</h3><p class="muted" style="font-size:.9rem">Ingeniero Civil, UNAM</p></div></div>
+        <ul class="bul">
+          <li>Diseño estructural sísmico en concreto y acero, y modelación hidrológica e hidráulica en 2D.</li>
+          <li>Reconocimiento Académico 2025 de ANFEI como Mejor Egresado de Ingeniería, FES Acatlán.</li>
+          <li>Coautor en Urban Water Journal, articulista en Revista IC y ponente en el CICM.</li>
+        </ul>
+        <a href="tel:+525564484618">55 6448 4618</a>
+      </article>
+    </div>
+    <div class="creds"><span class="pill">UNAM</span><span class="pill">ANFEI</span><span class="pill">CICM</span><span class="pill">SMIG</span><span class="pill">Urban Water Journal</span></div>
+  </div>
+</section>
+
+<section class="sect dark" id="contacto" data-show="inicio proyecto casa">
   <div class="wrap">
     <div class="contact">
-      <div class="contact-info">
-        <p class="stratum">−56.0 m · Terreno firme</p>
-        <h2>Apoya tu proyecto en terreno firme</h2>
-        <p>Cuéntanos qué vas a construir y dónde. Con la zona, los niveles y los sótanos ya podemos plantear una campaña de exploración y un alcance.</p>
-        <div class="contact-data mono">
-          <div><span class="muted">Correo</span><span>contacto@ejemplo.com</span></div>
-          <div><span class="muted">Teléfono</span><span>55 0000 0000</span></div>
-          <div><span class="muted">Oficina</span><span>Ciudad de México</span></div>
-        </div>
+      <div class="contact-t">
+        <p class="eyebrow" id="ctEye">¿Listo para tu próximo proyecto?</p>
+        <h2 id="ctH">Construyamos con certidumbre técnica y eficiencia financiera</h2>
+        <p id="ctP">Solicita una mesa técnica de evaluación o una cotización en cualquier estado de la República Mexicana.</p>
       </div>
-      <form id="form" novalidate>
-        <div class="f"><label for="fName">Nombre</label><input id="fName" name="nombre" autocomplete="name" required><span class="err" id="fName-e"></span></div>
-        <div class="f"><label for="fCo">Empresa</label><input id="fCo" name="empresa" autocomplete="organization"></div>
-        <div class="f"><label for="fMail">Correo</label><input id="fMail" name="correo" type="email" autocomplete="email" required><span class="err" id="fMail-e"></span></div>
-        <div class="f"><label for="fCity">Ubicación de la obra</label><input id="fCity" name="ubicacion"></div>
-        <div class="f full"><label for="fType">Servicio</label>
-          <select id="fType" name="servicio">
-            <option>Geotecnia y estructura</option>
-            <option>Estudio de mecánica de suelos</option>
-            <option>Diseño estructural</option>
-            <option>Dictamen o refuerzo</option>
-            <option>Excavación o talud</option>
-          </select></div>
-        <div class="f full"><label for="fMsg">Descripción del proyecto</label><textarea id="fMsg" name="mensaje" placeholder="Por ejemplo: edificio de 12 niveles y 2 sótanos, predio de 800 m²"></textarea></div>
-        <div class="form-end">
-          <button class="btn" type="submit">Enviar solicitud</button>
-          <p class="form-status" id="fStatus" role="status"></p>
-        </div>
-      </form>
+      <div class="channels">
+        <div><small>Correo</small><a href="mailto:contacto@protandem.mx">contacto@protandem.mx</a></div>
+        <div><small>Geotecnia e Infraestructura</small><a href="tel:+525530695845">(+52) 55 3069 5845</a><em>Ing. Alan Jared Gris M.</em></div>
+        <div><small>Estructuras e Hidrología</small><a href="tel:+525564484618">(+52) 55 6448 4618</a><em>Ing. Víctor H. Rosales M.</em></div>
+        <div><small>Alcance</small><strong>Sede en CDMX, despliegue en sitio a nivel nacional</strong></div>
+      </div>
     </div>
   </div>
 </section>
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Cota &amp; Carga Ingeniería · Empresa de ejemplo</span><span>Demo de diseño. Datos ilustrativos.</span></div>
+  <div class="wrap"><span>PROTÁNDEM INGENIERÍA S.A.S. DE C.V.</span><span>www.protandem.mx · contacto@protandem.mx</span></div>
 </footer>
 
 <script>
 (function(){
-const SOIL={
-  relleno:{c:'--soil-fill',p:'pFill'}, costra:{c:'--soil-crust',p:'pCrust'},
-  arcilla:{c:'--soil-clay',p:'pClay'}, arena:{c:'--soil-sand',p:'pSand'},
-  toba:{c:'--soil-tuff',p:'pTuff'}, prof:{c:'--soil-deep',p:'pSand'}, roca:{c:'--soil-rock',p:'pRock'}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MAIL='contacto@protandem.mx',WA='525564484618';
+
+/* Rutas */
+const VIEWS=['inicio','proyecto','casa'];
+const COPY={
+  inicio:['¿Listo para tu próximo proyecto?','Construyamos con certidumbre técnica y eficiencia financiera','Cuéntanos qué tienes en mente, en cualquier estado de la República Mexicana.'],
+  proyecto:['¿Listo para optimizar tu próximo proyecto?','Construyamos con certidumbre técnica y eficiencia financiera','Solicita una mesa técnica de evaluación o una cotización formal en cualquier estado de la República Mexicana.'],
+  casa:['¿Prefieres platicarlo?','Llámanos y lo vemos juntos','Si te resulta más fácil hablar con alguien, escríbenos o llámanos. Con gusto resolvemos tus dudas.']
 };
-// Estratos: [desde, hasta, nombre, suelo, N-SPT típico]
+let current=null;
+function show(view){
+  document.querySelectorAll('[data-show]').forEach(el=>{el.hidden=!el.dataset.show.split(' ').includes(view);});
+  document.querySelectorAll('[data-route]').forEach(a=>{a.dataset.route===view?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current');});
+  $('ctEye').textContent=COPY[view][0];$('ctH').textContent=COPY[view][1];$('ctP').textContent=COPY[view][2];
+  document.documentElement.dataset.view=view;
+  document.title=view==='casa'?'Tu casa a la medida | Protándem Ingeniería':view==='proyecto'?'Proyectos para empresas | Protándem Ingeniería':'Protándem Ingeniería';
+  current=view;
+}
+function route(){
+  const h=location.hash.slice(1)||'inicio';
+  if(VIEWS.includes(h)){
+    const changed=current!==h;show(h);
+    if(changed)window.scrollTo({top:0,behavior:'auto'});
+    return;
+  }
+  const el=$(h);
+  if(el&&el.dataset.show&&!el.dataset.show.split(' ').includes(current||'')){show(el.dataset.show.split(' ')[0]);el.scrollIntoView();}
+  else if(!current)show('inicio');
+}
+addEventListener('hashchange',route);
+
+/* Controles reutilizables */
+function radios(box,name,items,val,cb){
+  box.innerHTML=items.map((o,i)=>`<label class="opt${o.swatch?' swatch':''}"><input type="radio" name="${name}" id="${name}-${i}" value="${o.v}"${o.v===val?' checked':''}><span>${o.swatch?`<i style="background:${o.swatch}"></i>`:''}<span style="display:block;padding:0;border:0;background:none;color:inherit">${o.t}${o.d?`<small>${o.d}</small>`:''}</span></span></label>`).join('');
+  box.addEventListener('change',e=>cb(e.target.value));
+}
+function fixInner(box){box.querySelectorAll('.opt>span>span').forEach(s=>{s.style.height='auto';});}
+function sendLinks(prefix,subject,getText){
+  const mail=$(prefix+'Mail'),wa=$(prefix+'Wa');
+  const refresh=()=>{const t=getText();mail.href=`mailto:${MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(t)}`;wa.href=`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;};
+  const valid=()=>{
+    const n=$(prefix+'Name').value.trim(),c=$(prefix+'Contact').value.trim();
+    const msg=!n?'Escribe tu nombre para saber a quién responder.':!c?'Déjanos un teléfono o un correo para responderte.':'';
+    $(prefix+'Err').textContent=msg;
+    if(msg){(n?$(prefix+'Contact'):$(prefix+'Name')).focus();return false;}
+    return true;
+  };
+  [mail,wa].forEach(a=>{
+    a.addEventListener('pointerdown',refresh);a.addEventListener('focus',refresh);
+    a.addEventListener('click',e=>{
+      refresh();
+      if(!valid()){e.preventDefault();$(prefix+'Status').textContent='';return;}
+      $(prefix+'Status').textContent=a===mail?'Se abrió tu correo con el mensaje listo. Revísalo y pulsa enviar.':'Se abrió WhatsApp con el mensaje listo. Revísalo y pulsa enviar.';
+    });
+  });
+  $(prefix+'Copy').addEventListener('click',()=>{
+    const t=getText();
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$(prefix+'Status').textContent='Copiado. Pégalo en un correo a '+MAIL+'.';}).catch(()=>{$(prefix+'Status').textContent='No se pudo copiar. Escríbenos a '+MAIL+'.';});
+  });
+  refresh();
+  return refresh;
+}
+
+/* Ficha de proyecto */
+const SVC={
+  topo:'Topografía y fotogrametría con dron',ems:'Estudio de mecánica de suelos',cim:'Diseño de cimentación',exc:'Excavación, taludes y sostenimiento',
+  est:'Diseño estructural',ise:'Interacción suelo-estructura',hid:'Estudio hidrológico y drenaje',ins:'Instalaciones y coordinación BIM',
+  val:'Ingeniería de valor y reingeniería',cos:'Costos, catálogo y programa de obra',obr:'Ejecución de obra llave en mano',sup:'Supervisión técnica en sitio',dic:'Dictamen o geotecnia forense'
+};
+const TYPES=[{v:'edificio',t:'Edificio vertical'},{v:'vivienda',t:'Desarrollo habitacional'},{v:'comercial',t:'Comercial u oficinas'},{v:'nave',t:'Nave industrial'},{v:'infra',t:'Puente o infraestructura'},{v:'otro',t:'Otro'}];
+const STAGES=[{v:'idea',t:'Idea o factibilidad',d:'Aún sin diseño'},{v:'ante',t:'Anteproyecto',d:'Ya hay arquitectura o concepto'},{v:'ejec',t:'Proyecto ejecutivo listo',d:'Quiero revisarlo u optimizarlo'},{v:'obra',t:'En obra',d:'Ya se está construyendo'}];
+const NEXT={idea:'Siguiente paso: visita técnica al sitio para definir la campaña de exploración.',ante:'Siguiente paso: mesa técnica para revisar la arquitectura y las alternativas de cimentación.',ejec:'Siguiente paso: revisión de tus planos y memorias para detectar oportunidades de optimización.',obra:'Siguiente paso: visita a la obra para revisar lo ejecutado y definir la supervisión.'};
+const P={type:'edificio',stage:'ante',ov:{}};
+function num(id){return Math.max(0,+$(id).value||0);}
+function suggest(){
+  const s=new Set(),t=P.type,lv=num('pLevels'),b=num('pBase'),v=t==='edificio'||t==='vivienda'||t==='comercial'||t==='otro';
+  if(P.stage==='idea')['topo','ems','cos'].forEach(k=>s.add(k));
+  if(P.stage==='ante')['topo','ems','cim','est','cos'].forEach(k=>s.add(k));
+  if(P.stage==='ejec')['val','cos','obr'].forEach(k=>s.add(k));
+  if(P.stage==='obra')['sup','dic'].forEach(k=>s.add(k));
+  if(P.stage==='idea'||P.stage==='ante'){
+    if(v&&lv>=6)s.add('ise');
+    if(t==='vivienda'||t==='edificio'||t==='comercial')s.add('ins');
+    if(t==='vivienda'||t==='infra')s.add('hid');
+    if(t==='infra'){s.add('exc');s.add('ise');s.delete('ins');}
+    if(t==='nave'){s.add('cim');s.add('est');}
+  }
+  if(v&&b>0&&P.stage!=='obra'&&P.stage!=='ejec')s.add('exc');
+  return s;
+}
+function renderBrief(){
+  const s=suggest(),keys=Object.keys(SVC);
+  const on=k=>P.ov[k]!==undefined?P.ov[k]:s.has(k);
+  const ordered=keys.filter(k=>s.has(k)).concat(keys.filter(k=>!s.has(k)));
+  $('pSvc').innerHTML=ordered.map(k=>`<label><input type="checkbox" id="svc-${k}" data-k="${k}"${on(k)?' checked':''}><span>${SVC[k]}</span>${s.has(k)?'<span class="tagS">Sugerido</span>':'<span></span>'}</label>`).join('');
+  const typ=TYPES.find(x=>x.v===P.type).t,st=STAGES.find(x=>x.v===P.stage).t,infra=P.type==='infra';
+  document.querySelectorAll('[data-vertical]').forEach(e=>{e.hidden=infra;});
+  const size=[num('pArea')?num('pArea').toLocaleString('es-MX')+' m² de construcción':'',!infra&&num('pLevels')?num('pLevels')+' niveles':'',!infra&&num('pBase')?num('pBase')+' sótanos':''].filter(Boolean).join(', ');
+  $('pSum').textContent=`${typ} · ${st}${size?' · '+size:''}${$('pLoc').value.trim()?' · '+$('pLoc').value.trim():''}`;
+  $('pNext').textContent=NEXT[P.stage];
+  refreshBrief&&refreshBrief();
+}
+function briefText(){
+  const typ=TYPES.find(x=>x.v===P.type).t,st=STAGES.find(x=>x.v===P.stage).t,infra=P.type==='infra';
+  const svc=[...document.querySelectorAll('#pSvc input:checked')].map(i=>'- '+SVC[i.dataset.k]).join('\n')||'- Por definir';
+  return ['Hola, Protándem. Quiero revisar este proyecto:','',`Tipo de obra: ${typ}`,`Etapa: ${st}`,`Ubicación: ${$('pLoc').value.trim()||'Por definir'}`,`Construcción: ${num('pArea')||'?'} m²`,`Predio: ${num('pLand')||'?'} m²`].concat(infra?[]:[`Niveles: ${num('pLevels')}`,`Sótanos: ${num('pBase')}`]).concat(['','Alcance de interés:',svc]).concat($('pNote').value.trim()?['','Notas: '+$('pNote').value.trim()]:[]).concat(['',`Nombre: ${$('pName').value.trim()}`,`Empresa: ${$('pCo').value.trim()||'-'}`,`Contacto: ${$('pContact').value.trim()}`]).join('\n');
+}
+let refreshBrief=null;
+radios($('pType'),'ptype',TYPES,P.type,v=>{P.type=v;renderBrief();});
+radios($('pStage'),'pstage',STAGES,P.stage,v=>{P.stage=v;renderBrief();});
+$('briefForm').addEventListener('input',e=>{if(e.target.type!=='radio')renderBrief();});
+$('briefForm').addEventListener('submit',e=>e.preventDefault());
+$('pSvc').addEventListener('change',e=>{P.ov[e.target.dataset.k]=e.target.checked;refreshBrief();});
+['pName','pCo','pContact'].forEach(i=>$(i).addEventListener('input',()=>refreshBrief()));
+refreshBrief=sendLinks('p','Proyecto para Protándem Ingeniería',briefText);
+renderBrief();
+
+/* Explorador */
+const SOIL={relleno:['--soil-fill','pFill'],costra:['--soil-crust','pCrust'],arcilla:['--soil-clay','pClay'],arena:['--soil-sand','pSand'],toba:['--soil-tuff','pTuff'],prof:['--soil-deep','pSand'],roca:['--soil-rock','pRock']};
 const ZONES={
-  lomas:{name:'Lomas',Ts:0.3,naf:null,strata:[[0,1.5,'Relleno','relleno',8],[1.5,22,'Toba limoarenosa compacta','toba',48],[22,60,'Roca andesítica','roca',60]]},
-  trans:{name:'Transición',Ts:0.8,naf:4,strata:[[0,2,'Relleno','relleno',6],[2,7,'Limo arenoso','costra',14],[7,16,'Arcilla blanda','arcilla',5],[16,32,'Arena limosa compacta','arena',42],[32,60,'Toba','toba',58]]},
-  lac:{name:'Lacustre',Ts:2.0,naf:2,strata:[[0,2,'Relleno','relleno',6],[2,5,'Costra seca','costra',10],[5,32,'Serie arcillosa superior','arcilla',3],[32,36,'Capa dura','arena',50],[36,48,'Serie arcillosa inferior','arcilla',9],[48,60,'Depósitos profundos','prof',55]]}
+  lomas:{name:'Lomas',Ts:.3,naf:null,strata:[[0,1.5,'Relleno','relleno',8],[1.5,22,'Toba limoarenosa compacta','toba',48],[22,60,'Roca andesítica','roca',60]]},
+  trans:{name:'Transición',Ts:.8,naf:4,strata:[[0,2,'Relleno','relleno',6],[2,7,'Limo arenoso','costra',14],[7,16,'Arcilla blanda','arcilla',5],[16,32,'Arena limosa compacta','arena',42],[32,60,'Toba','toba',58]]},
+  lac:{name:'Lacustre',Ts:2,naf:2,strata:[[0,2,'Relleno','relleno',6],[2,5,'Costra seca','costra',10],[5,32,'Serie arcillosa superior','arcilla',3],[32,36,'Capa dura','arena',50],[36,48,'Serie arcillosa inferior','arcilla',9],[48,60,'Depósitos profundos','prof',55]]}
 };
-function foundation(zone,n){
-  if(zone==='lomas'){
-    if(n<=5)return{name:'Zapatas aisladas',kind:'zap',df:1.5,note:'Rellenos no controlados y posibles cavidades de antiguas minas.'};
-    if(n<=14)return{name:'Zapatas corridas',kind:'zap',df:3,note:'Rellenos no controlados y posibles cavidades de antiguas minas.'};
+function found(z,n){
+  if(z==='lomas'){
+    const r='Rellenos no controlados y posibles cavidades de antiguas minas.';
+    if(n<=5)return{name:'Zapatas aisladas',kind:'zap',df:1.5,note:r};
+    if(n<=14)return{name:'Zapatas corridas',kind:'zap',df:3,note:r};
     return{name:'Losa con sótanos',kind:'cajon',df:8,note:'Estabilidad del corte en toba y fracturamiento de la roca.'};
   }
-  if(zone==='trans'){
-    if(n<=4)return{name:'Losa de cimentación',kind:'losa',df:1.5,note:'Espesor variable de arcilla y asentamientos diferenciales dentro del predio.'};
-    if(n<=10)return{name:'Cajón de cimentación',kind:'cajon',df:4,note:'Espesor variable de arcilla y asentamientos diferenciales dentro del predio.'};
+  if(z==='trans'){
+    const r='Espesor variable de arcilla y asentamientos diferenciales dentro del predio.';
+    if(n<=4)return{name:'Losa de cimentación',kind:'losa',df:1.5,note:r};
+    if(n<=10)return{name:'Cajón de cimentación',kind:'cajon',df:4,note:r};
     return{name:'Cajón con pilas de punta',kind:'cajon',df:6,tip:18,pw:6,note:'Apoyo en la arena compacta y contraste de rigidez con la arcilla superior.'};
   }
   if(n<=3)return{name:'Losa de cimentación',kind:'losa',df:1.2,note:'Hundimiento regional y compresibilidad alta de la arcilla.'};
-  if(n<=8)return{name:'Cajón compensado',kind:'cajon',df:4,note:'Equilibrio entre peso del edificio y suelo excavado, y expansión del fondo durante la excavación.'};
+  if(n<=8)return{name:'Cajón compensado',kind:'cajon',df:4,note:'Equilibrio entre el peso del edificio y el suelo excavado, y expansión del fondo durante la excavación.'};
   if(n<=16)return{name:'Cajón con pilotes de fricción',kind:'cajon',df:5,tip:26,pw:3,note:'Hundimiento regional y capacidad en condición sísmica.'};
   return{name:'Cajón con pilotes de punta',kind:'cajon',df:7,tip:33,pw:3,note:'Fricción negativa por hundimiento regional y posible emersión aparente del edificio.'};
 }
-const fmt=(d)=>d===0?'±0.00':'−'+d.toFixed(1);
-function draw(svg,o){
-  const z=ZONES[o.zone],s=o.s,pad=o.pad??14,W=o.W,x0=o.x0??0,xEnd=o.xEnd??W,cx=o.cx??(x0+xEnd)/2;
-  const yG=pad+o.above*s,Y=(d)=>yG+d*s,H=yG+o.below*s+(o.ruler?8:0);
-  const bw=30*s,bh=o.levels*3.2*s,bL=cx-bw/2,cols=[0,1,2,3,4,5].map(i=>bL+i*bw/5);
-  const f=o.levels>0?(o.found||foundation(o.zone,o.levels)):null;
+function drawSec(svg,zone,levels){
+  const z=ZONES[zone],s=4,W=640,x0=46,xEnd=486,cx=186,above=82,below=60,pad=10;
+  const yG=pad+above*s,Y=d=>yG+d*s,H=yG+below*s+8,bw=30*s,bL=cx-bw/2,bh=levels*3.2*s,cols=[0,1,2,3,4,5].map(i=>bL+i*bw/5),f=found(zone,levels);
   let t='';
-  // Estratos
-  z.strata.forEach(a=>{
-    const yA=Y(a[0]),h=(Math.min(a[1],o.below)-a[0])*s; if(h<=0)return;
-    t+=`<rect x="${x0}" y="${yA}" width="${xEnd-x0}" height="${h}" style="fill:var(${SOIL[a[3]].c})"/>`;
-    t+=`<rect x="${x0}" y="${yA}" width="${xEnd-x0}" height="${h}" fill="url(#${SOIL[a[3]].p})"/>`;
-    t+=`<line x1="${x0}" x2="${xEnd}" y1="${yA}" y2="${yA}" style="stroke:var(--ink);stroke-width:.7"/>`;
-  });
-  // Talud
-  if(o.slope){
-    t+=`<polygon points="${x0},${yG-1} ${W*.34},${yG-1} ${W*.72},${yG+o.below*s*.8} ${x0},${yG+o.below*s*.8}" style="fill:var(--sect)"/>`;
-    t+=`<line x1="${W*.34}" y1="${yG}" x2="${W*.72}" y2="${yG+o.below*s*.8}" style="stroke:var(--accent);stroke-width:2"/>`;
-    [.3,.5,.7].forEach(k=>{const ax=W*.34+W*.38*k,ay=yG+o.below*s*.8*k;t+=`<line x1="${ax}" y1="${ay}" x2="${ax+W*.2}" y2="${ay+6}" style="stroke:var(--accent);stroke-width:1.5"/>`;});
-  }
-  // Nivel freático
-  if(z.naf&&!o.slope){
-    const yN=Y(z.naf);
-    t+=`<line x1="${x0}" x2="${xEnd}" y1="${yN}" y2="${yN}" style="stroke:var(--water);stroke-width:1.2;stroke-dasharray:6 4"/>`;
-    if(o.labels)t+=`<path d="M${xEnd-58} ${yN-8}h10l-5 8z" style="fill:var(--water)"/><text class="w" x="${xEnd-44}" y="${yN-3}">NAF</text>`;
-  }
-  // Cimentación
-  const sw=o.mini?1.2:2;
-  if(f){
-    const yD=Y(f.df);
-    if(f.tip){
-      const px=f.pw>=5?cols.filter((_,i)=>i%1===0):cols.concat(cols.slice(0,5).map(c=>c+bw/10));
-      px.forEach(x=>{t+=`<line class="anim" pathLength="1" x1="${x}" x2="${x}" y1="${yD}" y2="${Y(f.tip)}" style="stroke:var(--accent);stroke-width:${o.mini?1:f.pw*(s/4)}"/>`;});
-    }
-    if(f.kind==='cajon'){
-      t+=`<rect x="${bL-2}" y="${yG}" width="${bw+4}" height="${yD-yG}" style="fill:var(--surface);stroke:var(--accent);stroke-width:${sw}"/>`;
-      if(!o.mini&&f.df>=4)for(let d=3.2;d<f.df-.5;d+=3.2)t+=`<line x1="${bL}" x2="${bL+bw}" y1="${Y(d)}" y2="${Y(d)}" style="stroke:var(--ink);stroke-width:.6"/>`;
-      t+=`<rect x="${bL-2}" y="${yD-3}" width="${bw+4}" height="3" style="fill:var(--accent)"/>`;
-    } else if(f.kind==='losa'){
-      t+=`<rect x="${bL-3}" y="${yG}" width="${bw+6}" height="${yD-yG}" style="fill:var(--surface);stroke:var(--accent);stroke-width:${sw}"/>`;
-      t+=`<rect x="${bL-3}" y="${yD-3}" width="${bw+6}" height="3" style="fill:var(--accent)"/>`;
-    } else {
-      cols.forEach(x=>{
-        t+=`<line x1="${x}" x2="${x}" y1="${yG}" y2="${yD}" style="stroke:var(--accent);stroke-width:${sw}"/>`;
-        t+=`<rect x="${x-1.4*s}" y="${yD-1.8}" width="${2.8*s}" height="3.6" style="fill:var(--accent)"/>`;
-      });
-    }
-  }
-  // Edificio
-  if(o.levels>0){
-    t+=`<rect x="${bL}" y="${yG-bh}" width="${bw}" height="${bh}" style="fill:var(--surface)"/>`;
-    for(let i=1;i<=o.levels;i++){
-      const y=yG-i*3.2*s;
-      t+=`<line x1="${bL}" x2="${bL+bw}" y1="${y}" y2="${y}" style="stroke:var(--ink);stroke-width:${o.mini?.6:(i===o.levels?1.6:.8)}"/>`;
-    }
-    cols.forEach(x=>{t+=`<line class="anim" pathLength="1" x1="${x}" x2="${x}" y1="${yG}" y2="${yG-bh}" style="stroke:var(--ink);stroke-width:${o.mini?.6:1.3}"/>`;});
-    if(o.labels)t+=`<text class="b" x="${bL+bw+10}" y="${yG-bh+11}">${o.levels} niveles</text><text x="${bL+bw+10}" y="${yG-bh+25}">${(o.levels*3.2).toFixed(1)} m</text>`;
-  }
-  // Superficie
-  t+=`<line x1="${x0}" x2="${o.slope?W*.34:xEnd}" y1="${yG}" y2="${yG}" style="stroke:var(--ink);stroke-width:${o.mini?1.2:2}"/>`;
-  if(o.slope)t+=`<line x1="${W*.34}" x2="${xEnd}" y1="${yG}" y2="${yG}" style="stroke:var(--ink);stroke-width:1.2"/>`;
-  // Regla
-  if(o.ruler){
-    const xR=x0-10;
-    t+=`<line x1="${xR}" x2="${xR}" y1="${Y(0)-Math.min(o.above,80)*s}" y2="${Y(o.below)}" style="stroke:var(--ink);stroke-width:1"/>`;
-    for(let d=-Math.floor(o.above/20)*20;d<=o.below;d+=10){
-      if(d<0&&d%20!==0)continue;
-      const y=Y(d),tx=d===0?'±0':(d<0?'+'+(-d):'−'+d);
-      t+=`<line x1="${xR-4}" x2="${xR+4}" y1="${y}" y2="${y}" style="stroke:var(--ink);stroke-width:1"/>`;
-      t+=`<text class="bare" x="${xR-7}" y="${y+3.5}" text-anchor="end">${tx}</text>`;
-    }
-  }
-  // Rótulos de estrato
-  if(o.labels){
-    const lx=bL+bw+12;
-    z.strata.forEach(a=>{
-      // El relleno es muy delgado: su rótulo va justo sobre la superficie
-      const yC=a[3]==='relleno'?yG-5:Y((a[0]+Math.min(a[1],o.below))/2)+3.5;
-      t+=`<text x="${lx}" y="${yC}">${a[2]}</text>`;
-    });
-    if(f&&f.tip)t+=`<text class="ac b" x="${bL}" y="${Y(f.tip)+13}">Punta a −${f.tip} m</text>`;
-    if(f)t+=`<text class="ac b" x="${bL-6}" y="${Y(f.df)+(f.tip?-4:13)}" text-anchor="${f.tip?'end':'start'}">Df ${f.df} m</text>`;
-  }
-  // Registro N-SPT
-  if(o.chart){
-    const a0=xEnd+22,a1=W-10,Xn=(n)=>a0+(a1-a0)*Math.min(n,60)/60;
-    t+=`<text class="b bare" x="${a0}" y="${yG-34}">N-SPT</text><text class="bare" x="${a0}" y="${yG-20}">golpes / 30 cm</text>`;
-    [0,20,40,60].forEach(n=>{
-      t+=`<line x1="${Xn(n)}" x2="${Xn(n)}" y1="${yG}" y2="${Y(o.below)}" style="stroke:var(--line);stroke-width:1"/>`;
-      t+=`<text class="bare" x="${Xn(n)}" y="${yG-5}" text-anchor="middle">${n}</text>`;
-    });
-    let pts=[];
-    for(let d=0.75;d<o.below;d+=1.5){
-      const a=z.strata.find(q=>d>=q[0]&&d<q[1]);
-      const j=Math.sin(d*2.3)*.18+Math.cos(d*.9)*.1;
-      const n=Math.max(1,Math.min(60,a[4]*(1+j)));
-      pts.push(Xn(n).toFixed(1)+','+Y(d).toFixed(1));
-    }
-    t+=`<polyline points="${pts.join(' ')}" fill="none" style="stroke:var(--accent);stroke-width:1.8;stroke-linejoin:round"/>`;
-    t+=`<line x1="${a0}" x2="${a1}" y1="${yG}" y2="${yG}" style="stroke:var(--ink);stroke-width:1"/>`;
-  }
-  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
-  svg.innerHTML=t;
+  z.strata.forEach(a=>{const y=Y(a[0]),h=(a[1]-a[0])*s;t+=`<rect x="${x0}" y="${y}" width="${xEnd-x0}" height="${h}" style="fill:var(${SOIL[a[3]][0]})"/><rect x="${x0}" y="${y}" width="${xEnd-x0}" height="${h}" fill="url(#${SOIL[a[3]][1]})"/><line x1="${x0}" x2="${xEnd}" y1="${y}" y2="${y}" style="stroke:var(--slate-dark);stroke-width:.7"/>`;});
+  if(z.naf){const y=Y(z.naf);t+=`<line x1="${x0}" x2="${xEnd}" y1="${y}" y2="${y}" style="stroke:var(--water);stroke-width:1.2;stroke-dasharray:6 4"/><path d="M${xEnd-58} ${y-8}h10l-5 8z" style="fill:var(--water)"/><text class="w" x="${xEnd-44}" y="${y-3}">NAF</text>`;}
+  const yD=Y(f.df),A='var(--bronze-dark)';
+  if(f.tip){(f.pw>=5?cols:cols.concat(cols.slice(0,5).map(c=>c+bw/10))).forEach(x=>{t+=`<line x1="${x}" x2="${x}" y1="${yD}" y2="${Y(f.tip)}" style="stroke:${A};stroke-width:${f.pw}"/>`;});}
+  if(f.kind==='cajon'||f.kind==='losa'){
+    t+=`<rect x="${bL-2}" y="${yG}" width="${bw+4}" height="${yD-yG}" style="fill:var(--white);stroke:${A};stroke-width:2"/><rect x="${bL-2}" y="${yD-3}" width="${bw+4}" height="3" style="fill:${A}"/>`;
+    if(f.df>=4)for(let d=3.2;d<f.df-.5;d+=3.2)t+=`<line x1="${bL}" x2="${bL+bw}" y1="${Y(d)}" y2="${Y(d)}" style="stroke:var(--slate-dark);stroke-width:.6"/>`;
+  }else cols.forEach(x=>{t+=`<line x1="${x}" x2="${x}" y1="${yG}" y2="${yD}" style="stroke:${A};stroke-width:2"/><rect x="${x-5.6}" y="${yD-1.8}" width="11.2" height="3.6" style="fill:${A}"/>`;});
+  t+=`<rect x="${bL}" y="${yG-bh}" width="${bw}" height="${bh}" style="fill:var(--white)"/>`;
+  for(let i=1;i<=levels;i++){const y=yG-i*12.8;t+=`<line x1="${bL}" x2="${bL+bw}" y1="${y}" y2="${y}" style="stroke:var(--slate-dark);stroke-width:${i===levels?1.6:.8}"/>`;}
+  cols.forEach(x=>{t+=`<line x1="${x}" x2="${x}" y1="${yG}" y2="${yG-bh}" style="stroke:var(--slate-dark);stroke-width:1.3"/>`;});
+  t+=`<text class="b" x="${bL+bw+10}" y="${yG-bh+11}">${levels} niveles</text><text x="${bL+bw+10}" y="${yG-bh+25}">${(levels*3.2).toFixed(1)} m</text>`;
+  t+=`<line x1="${x0}" x2="${xEnd}" y1="${yG}" y2="${yG}" style="stroke:var(--slate-dark);stroke-width:2"/>`;
+  const xR=x0-10;t+=`<line x1="${xR}" x2="${xR}" y1="${Y(0)-80*s}" y2="${Y(below)}" style="stroke:var(--slate-dark)"/>`;
+  for(let d=-80;d<=below;d+=10){if(d<0&&d%20)continue;const y=Y(d);t+=`<line x1="${xR-4}" x2="${xR+4}" y1="${y}" y2="${y}" style="stroke:var(--slate-dark)"/><text class="bare" x="${xR-7}" y="${y+3.5}" text-anchor="end">${d===0?'±0':d<0?'+'+(-d):'−'+d}</text>`;}
+  const lx=bL+bw+12;z.strata.forEach(a=>{const y=a[3]==='relleno'?yG-5:Y((a[0]+a[1])/2)+3.5;t+=`<text x="${lx}" y="${y}">${a[2]}</text>`;});
+  if(f.tip)t+=`<text class="ac" x="${bL}" y="${Y(f.tip)+13}">Punta a −${f.tip} m</text>`;
+  t+=`<text class="ac" x="${f.tip?bL-6:bL}" y="${Y(f.df)+(f.tip?-4:14)}" text-anchor="${f.tip?'end':'start'}">Df ${f.df} m</text>`;
+  const a0=xEnd+22,a1=W-10,X=n=>a0+(a1-a0)*Math.min(n,60)/60;
+  t+=`<text class="b bare" x="${a0}" y="${yG-34}">N-SPT</text><text class="bare" x="${a0}" y="${yG-20}">golpes / 30 cm</text>`;
+  [0,20,40,60].forEach(n=>{t+=`<line x1="${X(n)}" x2="${X(n)}" y1="${yG}" y2="${Y(below)}" style="stroke:var(--border)"/><text class="bare" x="${X(n)}" y="${yG-5}" text-anchor="middle">${n}</text>`;});
+  const pts=[];for(let d=.75;d<below;d+=1.5){const a=z.strata.find(q=>d>=q[0]&&d<q[1]),n=Math.max(1,Math.min(60,a[4]*(1+Math.sin(d*2.3)*.18+Math.cos(d*.9)*.1)));pts.push(X(n).toFixed(1)+','+Y(d).toFixed(1));}
+  t+=`<polyline points="${pts.join(' ')}" fill="none" style="stroke:var(--bronze-dark);stroke-width:1.8;stroke-linejoin:round"/><line x1="${a0}" x2="${a1}" y1="${yG}" y2="${yG}" style="stroke:var(--slate-dark)"/>`;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.innerHTML=t;
 }
-
-/* Hero */
-draw(document.getElementById('heroSvg'),{zone:'lac',levels:18,s:3.7,W:580,x0:48,cx:210,above:60,below:60,pad:4,labels:true,ruler:true,found:{name:'',kind:'cajon',df:7,tip:33,pw:3}});
-
-/* Explorador */
-const exSvg=document.getElementById('exSvg'),lv=document.getElementById('lv'),lvOut=document.getElementById('lvOut');
-const $=(id)=>document.getElementById(id);
 function ex(){
-  const zone=document.querySelector('input[name=zone]:checked').value,n=+lv.value,z=ZONES[zone],f=foundation(zone,n);
-  lvOut.textContent=n;
-  draw(exSvg,{zone,levels:n,s:4,W:640,x0:46,xEnd:486,cx:186,above:82,below:60,pad:10,labels:true,ruler:true,chart:true});
-  exSvg.setAttribute('aria-label',`Corte a escala: edificio de ${n} niveles en zona ${z.name}, con ${f.name.toLowerCase()}.`);
-  $('rFound').textContent=f.name;
-  $('rNote').textContent=f.note;
-  const T=0.1*n,r=T/z.Ts;
-  const st=(r>=.8&&r<=1.2)?['bad','Cerca de resonancia']:(r>=.6&&r<=1.4)?['warn','Revisar amplificación']:['ok','Periodos separados'];
+  const zone=document.querySelector('input[name=zone]:checked').value,n=+$('lv').value,z=ZONES[zone],f=found(zone,n);
+  $('lvOut').textContent=n;drawSec($('exSvg'),zone,n);
+  $('exSvg').setAttribute('aria-label',`Corte a escala: edificio de ${n} niveles en zona ${z.name}, con ${f.name.toLowerCase()}.`);
+  $('rFound').textContent=f.name;$('rNote').textContent=f.note;
+  const T=.1*n,r=T/z.Ts,st=r>=.8&&r<=1.2?['bad','Cerca de resonancia']:r>=.6&&r<=1.4?['warn','Revisar amplificación']:['ok','Periodos separados'];
   $('rPer').innerHTML=`<span class="chip ${st[0]}">${st[1]}</span><small>Edificio T ≈ ${T.toFixed(1)} s, suelo Ts ≈ ${z.Ts.toFixed(1)} s, relación ${r.toFixed(2)}</small>`;
   const dep=Math.min(60,Math.ceil(Math.max((f.tip||0)+10,f.df+15)/5)*5);
-  const how=zone==='lomas'?'SPT y recuperación de núcleos':zone==='trans'?'SPT y CPTu':'CPTu y muestreo inalterado';
+  const how=zone==='lomas'?'Sondeos mixtos con SPT':zone==='trans'?'Sondeos mixtos con SPT y presiómetro':'SPT y muestreo inalterado';
   $('rExp').innerHTML=`${how}, a unos ${dep} m<small>El número de sondeos depende del predio y las colindancias.</small>`;
-  ex.state={zone:z.name,n,f:f.name};
 }
 document.querySelectorAll('input[name=zone]').forEach(i=>i.addEventListener('change',ex));
-lv.addEventListener('input',ex);
-ex();
-$('toForm').addEventListener('click',()=>{
-  const s=ex.state;
-  $('fMsg').value=`Edificio de ${s.n} niveles en zona ${s.zone}. Alternativa inicial del explorador: ${s.f.toLowerCase()}.`;
-  $('fType').value='Geotecnia y estructura';
-});
+$('lv').addEventListener('input',ex);ex();
 
-/* Proyectos */
-const P=[
- {id:'P-24-031',name:'Torre residencial de 22 niveles',place:'Ciudad de México, Zona III',d:['est','geo'],tag:'Geotecnia y estructura',data:'4 sótanos · 84 pilotes de punta',zone:'lac',lv:22,reto:'Arcilla muy compresible, hundimiento regional y dos colindancias sensibles.',sol:'Cajón de 13 m con pilotes a la capa dura, muro Milán perimetral y excavación por etapas con instrumentación.'},
- {id:'P-24-012',name:'Hospital de especialidades de 8 niveles',place:'Acapulco, Guerrero',d:['est'],tag:'Estructuras',data:'64 aisladores elastoméricos',zone:'trans',lv:8,reto:'Debe seguir operando después de un sismo intenso, con equipo médico sensible a las aceleraciones.',sol:'Aislamiento en la base y análisis no lineal paso a paso con registros escalados al sitio.'},
- {id:'P-23-044',name:'Excavación de 18 m para estacionamiento',place:'Ciudad de México, Zona II',d:['geo'],tag:'Geotecnia',data:'Muro Milán · 4 niveles de anclas',zone:'trans',lv:2,reto:'Corte profundo junto a una vialidad primaria y edificios sobre cimentación superficial.',sol:'Muro Milán de 60 cm, anclajes postensados, inclinómetros y umbrales de alerta durante cada etapa.'},
- {id:'P-23-027',name:'Refuerzo de oficinas de 12 niveles',place:'Ciudad de México, Zona III',d:['est'],tag:'Estructuras',data:'36 contravientos BRB',zone:'lac',lv:12,reto:'Daño en columnas y distorsiones excesivas, con el inmueble ocupado parcialmente.',sol:'Encamisado de columnas y contravientos restringidos al pandeo, instalados por zonas para mantener la operación.'},
- {id:'P-22-058',name:'Nave industrial con claros de 36 m',place:'Monterrey, Nuevo León',d:['est','geo'],tag:'Geotecnia y estructura',data:'Acero · pilas en conglomerado',zone:'lomas',lv:2,reto:'Claros grandes, puente grúa de 30 t y cargas concentradas en un terreno heterogéneo.',sol:'Marcos de acero con pilas de punta en conglomerado y control estricto de asentamientos diferenciales.'},
- {id:'P-22-019',name:'Estabilización de talud carretero de 35 m',place:'Oaxaca',d:['geo'],tag:'Geotecnia',data:'Anclas · drenes · concreto lanzado',zone:'lomas',lv:0,slope:true,reto:'Deslizamientos recurrentes en temporada de lluvias sobre roca fracturada.',sol:'Anclas de tensión, drenes de penetración, concreto lanzado y monitoreo con prismas.'}
+/* Áreas de servicio */
+const AREAS=[
+ ['Área 01 · Geotecnia e infraestructura','Estudios de mecánica de suelos y rocas','Planeación, campo, caracterización y modelado numérico para edificación, puentes, viaductos, túneles e infraestructura terrestre.',['Exploración con sondeos mixtos, SPT, ensayos presiométricos y muestreo inalterado.','Cimentaciones superficiales y profundas: capacidad de carga y asentamientos.','Taludes, excavaciones profundas, muros Milán, tablestacados, anclajes, concreto lanzado y túneles (FEM 2D/3D).','Geotecnia forense y dictámenes periciales.']],
+ ['Área 02 · Estructuras e hidrología','Diseño estructural avanzado','Concreto reforzado, acero y sistemas compuestos para edificación vertical, naves, puentes, pasarelas y estaciones.',['Análisis estático, pseudoestático y dinámico modal espectral, control de derivas, torsión y efectos de segundo orden.','Diseño por capacidad y detallamiento de conexiones, placas base, soldaduras y anclajes.','Ingeniería de valor: optimización de proyectos existentes para reducir acero y concreto.']],
+ ['Área 03 · El eslabón central','Interacción suelo-estructura estática y dinámica','Modelamos la compatibilidad real de deformaciones entre terreno y superestructura, en lugar de suponer apoyos empotrados.',['Resortes no lineales (curvas p-y, t-z, Q-z), módulos de reacción calibrados y medios continuos en elementos finitos.','Redistribución exacta de esfuerzos para evitar fisuras por asentamientos diferenciales.']],
+ ['Área 04 · Ingeniería del agua','Estudios hidrológicos y modelación hidráulica','Análisis de cuencas, lluvias extremas y escurrimientos para proteger desarrollos e infraestructura.',['Modelación 2D de inundaciones fluviales y pluviales urbanas.','Obras de drenaje transversal, puentes cajón y alcantarillas.','Redes de agua potable, alcantarillado y sistemas de regulación.']],
+ ['Área 05 · Geomática y territorio','Levantamientos topográficos y fotogrametría','Datos geoespaciales de alta precisión para el desplante del proyecto y el control volumétrico de obra.',['Estación total y GNSS/GPS de doble frecuencia.','Drones: ortomosaicos, nubes de puntos y modelos digitales de elevación.','Integración en QGIS y trazo geométrico en Civil 3D.']],
+ ['Área 06 · Ingeniería MEP e hidrosanitaria','Diseño y coordinación de instalaciones','Instalaciones compatibilizadas con la geometría estructural y la cimentación.',['Redes hidrosanitarias, pluvial y sistemas de bombeo.','Coordinación BIM (Revit / AutoCAD) para eliminar interferencias.','Planos As-Built, catálogos de conceptos y especificaciones.']],
+ ['Área 07 · Construcción y gerencia de obra','Ejecución constructiva del proyecto integral','Materializamos en campo lo que diseñamos en gabinete, respetando las hipótesis de cálculo y el presupuesto pactado.',['Obra civil, cimentaciones, estructuras de concreto y acero e instalaciones.','Cuantificación, precios unitarios y programación de obra.','Supervisión técnica y acompañamiento posterior a la construcción.']]
 ];
-const ledger=$('ledger');
-P.forEach((p,i)=>{
-  const el=document.createElement('details');
-  el.dataset.d=p.d.join(' ');
-  if(i===0)el.open=true;
-  el.innerHTML=`<summary><svg class="sec-svg" aria-hidden="true"></svg><span><span class="mono p-id">${p.id}</span><span class="p-name">${p.name}</span><span class="muted">${p.place}</span></span><span class="p-data"><span class="mono">${p.data}</span><br><span class="muted">${p.tag}</span></span><span class="sign" aria-hidden="true">+</span></summary><div class="p-more"><div><b>Reto</b>${p.reto}</div><div><b>Solución</b>${p.sol}</div></div>`;
-  ledger.appendChild(el);
-  draw(el.querySelector('svg'),{zone:p.zone,levels:p.lv,slope:p.slope,mini:true,s:1.05,W:110,above:44,below:50,pad:3});
-});
-document.querySelectorAll('.filter button').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.filter button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  const f=b.dataset.f;
-  ledger.querySelectorAll('details').forEach(d=>{d.hidden=f!=='all'&&!d.dataset.d.split(' ').includes(f);});
-}));
+$('areas').innerHTML=AREAS.map((a,i)=>`<details${i===0?' open':''}><summary><span><small>${a[0]}</small><b>${a[1]}</b></span><span class="sign" aria-hidden="true">+</span></summary><div class="area-b"><p class="muted">${a[2]}</p><ul class="bul">${a[3].map(x=>`<li>${x}</li>`).join('')}</ul></div></details>`).join('');
 
-/* Riel de profundidad */
-const secs=[...document.querySelectorAll('section[data-from]')];
-const col=$('railCol');
-secs.forEach(s=>{
-  const a=document.createElement('a');
-  a.href='#'+s.id;a.className='sf-'+s.dataset.soil;a.title=s.dataset.name;a.setAttribute('aria-label',s.dataset.name);
-  a.style.flex=(s.dataset.to-s.dataset.from)+' 0 0';
-  a.innerHTML=`<div class="hatch m-${s.dataset.mask}"></div>`;
-  col.appendChild(a);
-});
-const mark=document.createElement('div');mark.className='rail-mark';col.appendChild(mark);
-let tick=false;
-function depth(){
-  tick=false;
-  const y=window.scrollY+window.innerHeight*.4;
-  let d=0,name='Superficie';
-  for(const s of secs){
-    const r=s.getBoundingClientRect(),top=r.top+window.scrollY;
-    if(y>=top){
-      const from=+s.dataset.from,to=+s.dataset.to,k=Math.min(1,(y-top)/r.height);
-      d=from+(to-from)*k;name=s.dataset.name;
-    }
-  }
-  const atEnd=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4;
-  if(atEnd){d=60;name='Terreno firme';}
-  $('railDepth').textContent=fmt(d)+(d?' m':'');
-  $('railName').textContent=name;
-  $('depthPill').textContent=d?fmt(d)+' m':'Cota ±0.00';
-  mark.style.top=(d/60*100)+'%';
+/* Configurador de casa */
+const H={lot:'si',floors:2,beds:3,baths:3,cars:2,extras:new Set(['jardin','terraza']),style:'contemporaneo',facade:'blanco',step:0};
+const EXTRAS=[{v:'jardin',t:'Jardín',a:0},{v:'terraza',t:'Terraza',a:10},{v:'estudio',t:'Estudio u oficina',a:12},{v:'lavado',t:'Cuarto de lavado',a:6},{v:'servicio',t:'Cuarto de servicio',a:12},{v:'tv',t:'Sala de TV',a:16},{v:'gym',t:'Gimnasio en casa',a:18},{v:'bodega',t:'Bodega',a:6},{v:'roof',t:'Roof garden',d:'Terraza en la azotea',a:0},{v:'alberca',t:'Alberca',a:0},{v:'solar',t:'Paneles solares',a:0},{v:'cisterna',t:'Captación de lluvia',a:0}];
+const STYLES=[{v:'contemporaneo',t:'Contemporáneo',d:'Líneas limpias y volados',flat:1},{v:'minimalista',t:'Minimalista',d:'Formas simples y ventanales',flat:1},{v:'mexicano',t:'Mexicano',d:'Teja, arcos y calidez',flat:0},{v:'clasico',t:'Clásico',d:'Techo a dos aguas',flat:0}];
+const FACADES=[{v:'blanco',t:'Aplanado blanco',swatch:'#F3F1EC'},{v:'piedra',t:'Piedra',swatch:'#B9AD9B'},{v:'madera',t:'Madera',swatch:'#A27B57'},{v:'concreto',t:'Concreto aparente',swatch:'#A6A9AB'}];
+const STEPS=['Terreno','Espacios','Extras','Estilo','Enviar'];
+const LOTS=[{v:'si',t:'Sí, ya lo tengo'},{v:'proceso',t:'Estoy por comprarlo'},{v:'no',t:'Todavía no'}];
+function area(){
+  let a=42+18+Math.max(0,H.beds-1)*12+H.baths*5+H.cars*15+(H.floors-1)*8;
+  H.extras.forEach(k=>{a+=EXTRAS.find(e=>e.v===k).a;});
+  return Math.round(a*1.15/5)*5;
 }
-addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(depth);}},{passive:true});
-addEventListener('resize',depth);
-depth();
+function drawHouse(){
+  const W=620,H0=400,gy=304,a=area(),fp=a/H.floors,w=Math.max(240,Math.min(410,150+fp*1.3)),fh=72,x=(W-w)/2,top=gy-H.floors*fh;
+  const st=H.style,col=FACADES.find(f=>f.v===H.facade).swatch,ink='#121417',flat=st==='contemporaneo'||st==='minimalista',ex=k=>H.extras.has(k);
+  const glass='#CFE0E6';let t='';
+  // Terreno y cimentación
+  t+=`<rect x="0" y="${gy}" width="${W}" height="${H0-gy}" fill="#A98A6B"/><rect x="0" y="${gy}" width="${W}" height="${H0-gy}" fill="url(#pClay)"/><rect x="0" y="${gy}" width="${W}" height="8" fill="${ex('jardin')?'#7C8F5E':'#C5A77C'}"/>`;
+  t+=`<rect x="${x-8}" y="${gy}" width="${w+16}" height="16" fill="#2A2E35"/>`;
+  for(let i=0;i<=4;i++){const px=x+i*w/4;t+=`<rect x="${px-5}" y="${gy+16}" width="10" height="20" fill="#2A2E35"/>`;}
+  t+=`<text x="${W/2}" y="${gy+56}" text-anchor="middle" style="fill:#fff;paint-order:stroke;stroke:#5A4630;stroke-width:3px">La cimentación se define con el estudio de tu terreno</text>`;
+  // Cuerpo
+  t+=`<rect x="${x}" y="${top}" width="${w}" height="${gy-top}" fill="${col}" stroke="${ink}" stroke-width="1.5"/>`;
+  if(H.facade==='piedra')for(let y=top+8;y<gy;y+=12)t+=`<line x1="${x}" x2="${x+w}" y1="${y}" y2="${y}" stroke="${ink}" stroke-opacity=".16"/>`;
+  if(H.facade==='madera')for(let v=x+10;v<x+w;v+=11)t+=`<line x1="${v}" x2="${v}" y1="${top}" y2="${gy}" stroke="${ink}" stroke-opacity=".16"/>`;
+  if(H.facade==='concreto')for(let v=x+w/6;v<x+w-1;v+=w/6)for(let y=top+fh/2;y<gy;y+=fh/2)t+=`<circle cx="${v}" cy="${y}" r="1.2" fill="${ink}" fill-opacity=".3"/>`;
+  for(let i=1;i<H.floors;i++){const y=gy-i*fh;t+=`<line x1="${x}" x2="${x+w}" y1="${y}" y2="${y}" stroke="${ink}" stroke-opacity=".5"/>`;}
+  // Cochera
+  const garW=Math.min(H.cars,3)*40,garX=x+w-garW-10;
+  if(H.cars>0){t+=`<rect x="${garX}" y="${gy-40}" width="${garW}" height="40" fill="#E2DED8" stroke="${ink}"/>`;for(let y=gy-32;y<gy;y+=8)t+=`<line x1="${garX}" x2="${garX+garW}" y1="${y}" y2="${y}" stroke="${ink}" stroke-opacity=".35"/>`;}
+  // Puerta
+  const dX=x+18,dW=st==='mexicano'?26:24;
+  if(st==='mexicano')t+=`<path d="M${dX} ${gy}v-27a13 13 0 0 1 26 0v27z" fill="#6B4A2C" stroke="${ink}"/>`;
+  else t+=`<rect x="${dX}" y="${gy-40}" width="${dW}" height="40" fill="#2A2E35"/><circle cx="${dX+18}" cy="${gy-20}" r="1.6" fill="#C5A47E"/>`;
+  // Ventanas
+  const win=(wx,wy,ww,wh)=>st==='mexicano'?`<path d="M${wx} ${wy+wh}v-${wh-ww/2}a${ww/2} ${ww/2} 0 0 1 ${ww} 0v${wh-ww/2}z" fill="${glass}" stroke="${ink}"/>`:`<rect x="${wx}" y="${wy}" width="${ww}" height="${wh}" fill="${glass}" stroke="${ink}"/>`+(st==='clasico'?`<path d="M${wx+ww/2} ${wy}v${wh}M${wx} ${wy+wh/2}h${ww}" stroke="${ink}" stroke-opacity=".6"/>`:'');
+  const ww=st==='minimalista'?64:36;
+  for(let f=0;f<H.floors;f++){
+    const y=gy-(f+1)*fh+12,l=x+(f===0?54:14),r=x+w-(f===0&&H.cars>0?garW+18:14)-((H.floors>1&&f===H.floors-1&&ex('terraza'))?52:0),n=Math.max(1,Math.floor((r-l+10)/(ww+12)));
+    if(r-l>ww)for(let i=0;i<n;i++){const gap=(r-l-n*ww)/Math.max(1,n);t+=win(l+gap/2+i*(ww+gap),y,ww,fh-26);}
+  }
+  // Terraza
+  if(ex('terraza')){
+    if(H.floors>1){const y=top+fh,tx=x+w-46;t+=`<rect x="${tx}" y="${y-50}" width="38" height="50" fill="${glass}" stroke="${ink}"/><path d="M${tx+19} ${y-50}v50" stroke="${ink}" stroke-opacity=".6"/><path d="M${x+w} ${y}h24" stroke="${ink}" stroke-width="4"/><path d="M${x+w+24} ${y}v-20M${x+w} ${y-20}h24M${x+w+8} ${y}v-20M${x+w+16} ${y}v-20" stroke="${ink}" stroke-width="1.3" fill="none"/>`;}
+    else{const px=x-46;t+=`<path d="M${px} ${gy}v-44M${px} ${gy-44}h46M${px+15} ${gy-44}v5M${px+30} ${gy-44}v5" stroke="${ink}" stroke-width="2" fill="none"/>`;}
+  }
+  // Techo
+  if(st==='contemporaneo')t+=`<rect x="${x-16}" y="${top-10}" width="${w+32}" height="10" fill="#2A2E35"/><rect x="${x-16}" y="${top-2}" width="${w+32}" height="2" fill="#C5A47E"/>`;
+  if(st==='minimalista')t+=`<rect x="${x-2}" y="${top-6}" width="${w+4}" height="6" fill="#2A2E35"/>`;
+  if(st==='clasico')t+=`<path d="M${x-14} ${top}L${x+w/2} ${top-50}L${x+w+14} ${top}z" fill="#2A2E35"/>`;
+  if(st==='mexicano'){t+=`<path d="M${x-16} ${top}L${x+22} ${top-40}H${x+w-22}L${x+w+16} ${top}z" fill="#A9583A"/>`;for(let v=x+4;v<x+w;v+=12)t+=`<line x1="${v}" y1="${top}" x2="${v+6}" y2="${top-40}" stroke="#121417" stroke-opacity=".2"/>`;}
+  if(ex('solar')){const sy=flat?top-16:top-30,sx=x+w/2-40;t+=`<g transform="${flat?'':`rotate(-4 ${sx} ${sy})`}"><rect x="${sx}" y="${sy}" width="80" height="7" fill="#1E3550" stroke="${ink}"/><path d="M${sx+20} ${sy}v7M${sx+40} ${sy}v7M${sx+60} ${sy}v7" stroke="#8FB0D0"/></g>`;}
+  if(ex('roof')&&flat){const ry=top-10;t+=`<path d="M${x+6} ${ry}v-16M${x+6} ${ry-16}h60M${x+66} ${ry-16}v16" stroke="${ink}" stroke-width="1.5" fill="none"/>`;[x+w-70,x+w-48,x+w-26].forEach(c=>{t+=`<circle cx="${c}" cy="${ry-9}" r="8" fill="#7C8F5E"/>`;});}
+  // Exterior
+  const tree=(c,h,r)=>`<rect x="${c-2.5}" y="${gy-h}" width="5" height="${h}" fill="#6B4A2C"/><circle cx="${c}" cy="${gy-h-r*.5}" r="${r}" fill="#7C8F5E"/><circle cx="${c-r*.5}" cy="${gy-h+1}" r="${r*.6}" fill="#6E8253"/>`;
+  if(ex('jardin')){t+=tree(Math.max(30,x-70),44,24);if(!ex('alberca'))t+=tree(Math.min(W-30,x+w+58),32,18);}
+  if(ex('alberca')){const px=x+w+14,pw=Math.max(40,W-px-8);t+=`<rect x="${px}" y="${gy}" width="${pw}" height="12" fill="#6FB8D2" stroke="${ink}"/>`;}
+  if(ex('cisterna'))t+=`<rect x="${x-34}" y="${gy+6}" width="24" height="16" fill="#8A9299" stroke="${ink}"/>`;
+  // Persona para escala
+  const pxs=x-18;t+=`<g fill="${ink}" fill-opacity=".72"><circle cx="${pxs}" cy="${gy-29}" r="3.4"/><rect x="${pxs-3.2}" y="${gy-25}" width="6.4" height="25" rx="2.5"/></g>`;
+  $('houseSvg').setAttribute('viewBox',`0 0 ${W} ${H0}`);$('houseSvg').innerHTML=t;
+  const sum=`Casa ${STYLES.find(s=>s.v===st).t.toLowerCase()} de ${H.floors} ${H.floors===1?'piso':'pisos'}, unos ${a} m², ${H.beds} recámaras y ${H.baths} baños.`;
+  $('houseSvg').setAttribute('aria-label','Dibujo de tu casa. '+sum);
+}
+function plural(n,s,p){return n+' '+(n===1?s:p);}
+function renderHouse(){
+  drawHouse();
+  const a=area();
+  $('nArea').textContent=`${a} m²`;$('nFloors').textContent=H.floors;$('nRooms').textContent=`${H.beds} y ${H.baths}`;
+  const ex=[...H.extras].map(k=>EXTRAS.find(e=>e.v===k).t);
+  $('hChips').innerHTML=(H.cars?[plural(H.cars,'auto en cochera','autos en cochera')]:[]).concat(ex).map(x=>`<span class="pill">${esc(x)}</span>`).join('');
+  const land=num('hLand'),fp=Math.round(a/H.floors),fit=$('hFit');
+  fit.className='note';
+  if(H.lot!=='si'){fit.textContent=`Para esta casa conviene buscar un terreno de ${Math.ceil(fp/.6/10)*10} m² o más. Te ayudamos a revisar opciones antes de comprar.`;}
+  else if(!land){fit.textContent='Dinos cuánto mide tu terreno para revisar si tu casa cabe bien.';}
+  else{
+    const r=fp/land;
+    if(r>.75&&H.floors<3){fit.className='note warn';fit.textContent=`Tu casa ocuparía cerca del ${Math.round(r*100)}% del terreno. Agregar un piso dejaría más espacio libre.`;}
+    else if(r>.75){fit.className='note warn';fit.textContent=`Tu casa ocuparía cerca del ${Math.round(r*100)}% del terreno. Conviene revisar el tamaño contigo.`;}
+    else fit.textContent=`Tu casa ocuparía cerca del ${Math.round(r*100)}% de tu terreno. Cada municipio fija cuánto se puede construir; nosotros lo revisamos.`;
+  }
+  $('hRoofNote').hidden=!(H.extras.has('roof')&&!STYLES.find(s=>s.v===H.style).flat);
+  $('hLandBox').hidden=H.lot!=='si';
+  $('hSummary').textContent=`${STYLES.find(s=>s.v===H.style).t}, ${FACADES.find(f=>f.v===H.facade).t.toLowerCase()}. ${plural(H.floors,'piso','pisos')}, ${plural(H.beds,'recámara','recámaras')}, ${plural(H.baths,'baño','baños')}, ${H.cars?plural(H.cars,'auto','autos'):'sin cochera'}. Unos ${a} m²${ex.length?'. Con: '+ex.join(', ').toLowerCase():''}.`;
+  refreshHouse&&refreshHouse();
+}
+function houseText(){
+  const lot=LOTS.find(l=>l.v===H.lot).t,ex=[...H.extras].map(k=>EXTRAS.find(e=>e.v===k).t);
+  return ['Hola, Protándem. Quiero construir mi casa:','',`Terreno: ${lot}${H.lot==='si'&&num('hLand')?` (${num('hLand')} m²)`:''}`,`Ubicación: ${$('hLoc').value.trim()||'Por definir'}`,`Pisos: ${H.floors}`,`Recámaras: ${H.beds}`,`Baños: ${H.baths}`,`Cochera: ${H.cars} ${H.cars===1?'auto':'autos'}`,`Extras: ${ex.join(', ')||'Ninguno'}`,`Estilo: ${STYLES.find(s=>s.v===H.style).t}`,`Fachada: ${FACADES.find(f=>f.v===H.facade).t}`,`Construcción aproximada: ${area()} m²`,`Presupuesto: ${$('hBudget').value}`,`Para empezar: ${$('hWhen').value}`].concat($('hNote').value.trim()?['','Notas: '+$('hNote').value.trim()]:[]).concat(['',`Nombre: ${$('hName').value.trim()}`,`Contacto: ${$('hContact').value.trim()}`]).join('\n');
+}
+let refreshHouse=null;
+radios($('hLot'),'hlot',LOTS,H.lot,v=>{H.lot=v;renderHouse();});
+radios($('hFloors'),'hfloors',[{v:'1',t:'1 piso'},{v:'2',t:'2 pisos'},{v:'3',t:'3 pisos'}],String(H.floors),v=>{H.floors=+v;renderHouse();});
+radios($('hStyle'),'hstyle',STYLES,H.style,v=>{H.style=v;renderHouse();});
+radios($('hFacade'),'hfacade',FACADES,H.facade,v=>{H.facade=v;renderHouse();});
+['hLot','hFloors','hStyle','hFacade','pType','pStage'].forEach(i=>fixInner($(i)));
+$('hExtras').innerHTML=EXTRAS.map(e=>`<label class="opt"><input type="checkbox" id="x-${e.v}" value="${e.v}"${H.extras.has(e.v)?' checked':''}><span>${e.t}${e.d?`<small>${e.d}</small>`:''}</span></label>`).join('');
+$('hExtras').addEventListener('change',e=>{e.target.checked?H.extras.add(e.target.value):H.extras.delete(e.target.value);renderHouse();});
+const COUNT=[['beds','Recámaras','',1,6],['baths','Baños','Cuenta los medios baños como uno',1,6],['cars','Autos en cochera','',0,4]];
+$('hCounters').innerHTML=COUNT.map(c=>`<div class="counter"><div><b>${c[1]}</b>${c[2]?`<span class="help">${c[2]}</span>`:''}</div><div class="ctl" role="group" aria-label="${c[1]}"><button type="button" data-c="${c[0]}" data-d="-1" aria-label="Quitar ${c[1].toLowerCase()}">−</button><output id="c-${c[0]}">${H[c[0]]}</output><button type="button" data-c="${c[0]}" data-d="1" aria-label="Agregar ${c[1].toLowerCase()}">+</button></div></div>`).join('');
+function syncCounters(){COUNT.forEach(c=>{$('c-'+c[0]).textContent=H[c[0]];document.querySelector(`[data-c=${c[0]}][data-d="-1"]`).disabled=H[c[0]]<=c[3];document.querySelector(`[data-c=${c[0]}][data-d="1"]`).disabled=H[c[0]]>=c[4];});}
+$('hCounters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const c=COUNT.find(x=>x[0]===b.dataset.c);H[c[0]]=Math.min(c[4],Math.max(c[3],H[c[0]]+ +b.dataset.d));syncCounters();renderHouse();});
+syncCounters();
+['hLoc','hLand','hName','hContact','hNote'].forEach(i=>$(i).addEventListener('input',renderHouse));
+['hBudget','hWhen'].forEach(i=>$(i).addEventListener('change',()=>refreshHouse()));
+function goStep(n,scroll){
+  H.step=Math.max(0,Math.min(STEPS.length-1,n));
+  document.querySelectorAll('[data-pane]').forEach(p=>{p.hidden=+p.dataset.pane!==H.step;});
+  $('stepper').innerHTML=STEPS.map((s,i)=>`<button type="button" data-s="${i}" class="${i<H.step?'done':''}"${i===H.step?' aria-current="step"':''}>${i+1}. ${s}</button>`).join('');
+  $('wBack').style.visibility=H.step===0?'hidden':'visible';
+  $('wNext').hidden=H.step===STEPS.length-1;
+  $('wNext').textContent=H.step===STEPS.length-2?'Ver mi resumen →':'Siguiente →';
+  if(scroll){const w=document.querySelector('.wizard');if(w.getBoundingClientRect().top<70||matchMedia('(max-width:920px)').matches)w.scrollIntoView({block:'start'});}
+}
+$('stepper').addEventListener('click',e=>{const b=e.target.closest('button');if(b)goStep(+b.dataset.s,true);});
+$('wNext').addEventListener('click',()=>goStep(H.step+1,true));
+$('wBack').addEventListener('click',()=>goStep(H.step-1,true));
+refreshHouse=sendLinks('h','Quiero construir mi casa',houseText);
+goStep(0);renderHouse();
 
-/* Menú móvil */
-const nav=$('nav'),mb=$('menuBtn');
-mb.addEventListener('click',()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
-nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');}});
-
-/* Formulario */
-$('form').addEventListener('submit',e=>{
-  e.preventDefault();
-  const name=$('fName'),mail=$('fMail');
-  $('fName-e').textContent=name.value.trim()?'':'Escribe tu nombre.';
-  $('fMail-e').textContent=mail.validity.valid&&mail.value?'':'Escribe un correo válido, como nombre@empresa.com.';
-  name.setAttribute('aria-invalid',!name.value.trim());
-  mail.setAttribute('aria-invalid',!(mail.validity.valid&&mail.value));
-  if(!name.value.trim()){name.focus();$('fStatus').textContent='';return;}
-  if(!(mail.validity.valid&&mail.value)){mail.focus();$('fStatus').textContent='';return;}
-  $('fStatus').textContent='Formulario validado. Como esta página es una demo, la solicitud no se envió a nadie.';
-});
+route();
 })();
 </script>
 </body>
