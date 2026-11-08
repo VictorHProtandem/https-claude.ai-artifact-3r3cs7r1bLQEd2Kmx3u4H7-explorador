@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cotiza tu casa | Protándem Ingeniería</title>
+<meta name="description" content="Cuéntanos de tu proyecto de casa y recibe un estimado inicial de PROTÁNDEM Ingeniería por correo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23121417' stroke='%23C5A47E' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='800' font-style='italic' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+:root{--pizarra:#121417;--bronce:#C5A47E;--bronce-claro:#E2C9A6;--bronce-oscuro:#8C6D46;--bronce-texto:#775A36;--papel:#FFFFFF;--papel-calido:#F7F6F4;--texto:#1E2022;--tenue:#5A6065;--borde:#E2DED8;--error:#A32A2A;--serif:"Cinzel",Georgia,serif;--sans:"Montserrat",system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--papel-calido);color:var(--texto);font:400 1rem/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--serif);font-weight:700;line-height:1.25;margin:0 0 12px}
+h1{font-size:clamp(1.5rem,5vw,2rem)}
+h2{font-size:1.1rem;margin-top:28px}
+p{margin:0 0 16px}
+a{color:var(--bronce-texto);font-weight:600}
+:focus-visible{outline:3px solid var(--bronce-oscuro);outline-offset:2px}
+.encabezado{background:var(--pizarra);border-bottom:1px solid var(--bronce);padding:16px}
+.encabezado a{display:inline-flex;flex-direction:column;color:var(--bronce-claro);text-decoration:none;font:700 1.1rem/1.1 var(--serif);letter-spacing:.06em}
+.encabezado a span{font:600 .68rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--papel);margin-top:3px}
+.contenido{max-width:720px;margin:0 auto;padding:32px 16px 56px}
+.resumen-aviso{padding:18px;margin-bottom:18px;background:var(--papel);border:1px solid var(--borde);border-left:4px solid var(--bronce-oscuro);font-size:.93rem}
+.resumen-aviso p:last-child{margin:0}
+.casilla{display:flex;gap:12px;align-items:flex-start;font-weight:500;cursor:pointer}
+.casilla input{width:22px;height:22px;flex:none;margin:2px 0 0;accent-color:var(--bronce-oscuro)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{padding:0;width:100%}
+.avance{color:var(--bronce-texto);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ancho{grid-column:1/-1}
+label{display:block;font-size:.92rem;font-weight:600;margin-bottom:5px}
+small{display:block;color:var(--tenue);font-size:.82rem;font-weight:400;margin-top:3px}
+input:not([type=radio],[type=checkbox]),select{width:100%;min-height:46px;padding:9px 11px;background:var(--papel);color:var(--texto);border:1px solid var(--tenue);border-radius:0;font:inherit}
+[aria-invalid=true]{border-color:var(--error)!important;border-width:2px!important}
+.tarjeta{display:flex;gap:12px;align-items:flex-start;padding:14px;margin:0 0 10px;background:var(--papel);border:1px solid var(--borde);cursor:pointer;font-weight:400}
+.tarjeta:has(input:checked){border:2px solid var(--bronce-oscuro);padding:13px}
+.tarjeta input{width:20px;height:20px;flex:none;margin:2px 0 0;accent-color:var(--bronce-oscuro)}
+.tarjeta b{font-weight:600}
+.verificacion{margin-top:20px;min-height:65px}
+.errores{margin-top:18px;padding:12px 14px;background:var(--papel);border-left:4px solid var(--error);font-size:.92rem}
+.errores ul{margin:0;padding-left:18px}
+.acciones{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:22px}
+.boton{min-height:46px;padding:10px 22px;background:var(--pizarra);color:var(--papel);border:1px solid var(--pizarra);font:600 .95rem var(--sans);cursor:pointer}
+.boton:disabled{background:var(--borde);border-color:var(--borde);color:var(--tenue);cursor:not-allowed}
+.boton.secundario{background:transparent;color:var(--texto)}
+.pie{background:var(--pizarra);color:#C9C4BC;border-top:1px solid var(--bronce-oscuro);padding:20px 16px;font-size:.84rem;text-align:center}
+.pie a{color:var(--bronce-claro)}
+@media (max-width:520px){.campos{grid-template-columns:minmax(0,1fr)}.boton{flex:1 1 auto}}
+</style>
+</head>
+<body>
+<header class="encabezado"><a href="./">PROTÁNDEM<span>Ingeniería</span></a></header>
+
+<main class="contenido">
+  <section id="paso-aviso">
+    <h1>Cotiza tu casa</h1>
+    <p>Responde unas preguntas sobre tu proyecto. Un ingeniero revisará tus datos y te enviará un estimado inicial por correo.</p>
+    <div class="resumen-aviso">
+      <p>PROTÁNDEM INGENIERÍA S.A.S. DE C.V. usará tus datos de contacto, de tu proyecto y financieros y patrimoniales (presupuesto, forma de pago y si tienes casa o terreno) solo para preparar tu estimado y darle seguimiento. No los vendemos ni los usamos para publicidad.</p>
+      <p>Lee el <a href="aviso-privacidad.html" target="_blank" rel="noopener">aviso de privacidad completo</a> y cómo ejercer tus derechos.</p>
+    </div>
+    <label class="casilla">
+      <input type="checkbox" id="consentimiento">
+      <span>Soy mayor de edad, leí el aviso de privacidad y doy mi consentimiento expreso para el tratamiento de mis datos, incluidos los financieros y patrimoniales.</span>
+    </label>
+    <div class="acciones"><button type="button" class="boton" id="aceptar" disabled>Aceptar y continuar</button></div>
+  </section>
+
+  <form id="formulario" novalidate hidden>
+    <p class="avance" id="avance" aria-live="polite"></p>
+
+    <fieldset class="paso" data-paso="0">
+      <legend><h1>¿En qué situación estás?</h1></legend>
+      <p>No necesitas tener todo decidido. Te ayudamos a partir de donde estés.</p>
+      <label class="tarjeta"><input type="radio" name="situacion" value="tiene_casa" required><span><b>Ya tengo casa</b><small>Quiero remodelarla o ampliarla.</small></span></label>
+      <label class="tarjeta"><input type="radio" name="situacion" value="tiene_terreno"><span><b>Tengo terreno</b><small>Quiero construir una casa nueva.</small></span></label>
+      <label class="tarjeta"><input type="radio" name="situacion" value="nada"><span><b>Todavía no tengo ninguno</b><small>Quiero saber cuánto necesito y recibir orientación sobre terrenos.</small></span></label>
+    </fieldset>
+
+    <fieldset class="paso" data-paso="1" hidden>
+      <legend><h1>Cuéntanos de tu proyecto</h1></legend>
+      <p>Si no estás seguro, escribe una aproximación. Después la revisamos contigo.</p>
+      <div class="campos">
+        <div><label for="cp" id="etiqueta-cp">Código postal del predio</label><input id="cp" name="cp" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" required autocomplete="postal-code"></div>
+        <div><label for="municipio" id="etiqueta-municipio">Municipio o alcaldía</label><input id="municipio" name="municipio" maxlength="80" required></div>
+        <div id="caja-terreno"><label for="m2_terreno" id="etiqueta-terreno">Superficie del terreno (m²)</label><input id="m2_terreno" name="m2_terreno" type="number" min="1" max="100000" step="any" required></div>
+        <div><label for="m2_construccion" id="etiqueta-construccion">Metros que quieres construir (m²)</label><input id="m2_construccion" name="m2_construccion" type="number" min="20" max="1000" step="any" required><small>De 20 a 1,000 m².</small></div>
+        <div><label for="niveles">Niveles</label><input id="niveles" name="niveles" type="number" min="1" max="6" step="1" required></div>
+        <div><label for="recamaras">Recámaras</label><input id="recamaras" name="recamaras" type="number" min="0" max="20" step="1" required></div>
+        <div><label for="banos">Baños</label><input id="banos" name="banos" type="number" min="0" max="20" step="0.5" required></div>
+        <div><label for="estacionamientos">Lugares de estacionamiento</label><input id="estacionamientos" name="estacionamientos" type="number" min="0" max="20" step="1" required></div>
+      </div>
+      <h2>Nivel de acabados</h2>
+      <label class="tarjeta"><input type="radio" name="acabados" value="economico" required><span><b>Económico</b><small>Funcional, con materiales sencillos.</small></span></label>
+      <label class="tarjeta"><input type="radio" name="acabados" value="medio"><span><b>Medio</b><small>Equilibrio entre costo y calidad.</small></span></label>
+      <label class="tarjeta"><input type="radio" name="acabados" value="alto"><span><b>Alto</b><small>Materiales y detalles de mayor categoría.</small></span></label>
+    </fieldset>
+
+    <fieldset class="paso" data-paso="2" hidden>
+      <legend><h1>Presupuesto y contacto</h1></legend>
+      <div class="campos">
+        <div><label for="presupuesto_cliente">Presupuesto aproximado (pesos)</label><input id="presupuesto_cliente" name="presupuesto_cliente" type="number" min="1" max="1000000000" step="any" required></div>
+        <div><label for="plazo_meses">¿En cuántos meses te gustaría terminar?</label><input id="plazo_meses" name="plazo_meses" type="number" min="1" max="120" step="1" required></div>
+        <div class="ancho"><label for="forma_pago">¿Cómo planeas pagarlo?</label>
+          <select id="forma_pago" name="forma_pago" required>
+            <option value="">Elige una opción</option>
+            <option value="recursos_propios">Recursos propios</option>
+            <option value="credito_infonavit_fovissste">Crédito INFONAVIT o FOVISSSTE</option>
+            <option value="credito_bancario">Crédito bancario</option>
+            <option value="por_definir">Aún no lo sé</option>
+          </select></div>
+        <div><label for="nombre">Nombre</label><input id="nombre" name="nombre" maxlength="80" required autocomplete="given-name"></div>
+        <div><label for="apellidos">Apellidos</label><input id="apellidos" name="apellidos" maxlength="80" required autocomplete="family-name"></div>
+        <div><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" maxlength="120" required autocomplete="email"></div>
+        <div><label for="telefono">Teléfono a 10 dígitos</label><input id="telefono" name="telefono" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required autocomplete="tel-national"></div>
+      </div>
+      <div class="verificacion" id="verificacion"></div>
+    </fieldset>
+
+    <div class="errores" id="errores" role="alert" hidden></div>
+    <div class="acciones">
+      <button type="button" class="boton secundario" id="atras" hidden>Atrás</button>
+      <button type="button" class="boton" id="siguiente">Siguiente</button>
+      <button type="submit" class="boton" id="enviar" hidden>Enviar mis datos</button>
+    </div>
+  </form>
+
+  <section id="paso-gracias" hidden tabindex="-1">
+    <h1>Recibimos tus datos</h1>
+    <p>Un ingeniero revisará tu información y te enviaremos un estimado inicial por correo. Este formulario no genera cotizaciones automáticas.</p>
+    <p><a href="./">Volver al inicio</a></p>
+  </section>
+</main>
+
+<footer class="pie">PROTÁNDEM INGENIERÍA S.A.S. DE C.V. · contacto@protandem.mx · <a href="aviso-privacidad.html">Aviso de privacidad</a></footer>
+
+<script>
+"use strict";
+// Configuración: dirección del servicio de Cloudflare y clave pública de Turnstile.
+const CONFIG = {
+  endpoint: "https://protandem-formulario.victorh-787.workers.dev/solicitud",
+  turnstileSitekey: "0x4AAAAAAF4Px7bg5NYVBOak",
+};
+
+const $ = (id) => document.getElementById(id);
+const formulario = $("formulario");
+const pasos = [...document.querySelectorAll(".paso")];
+const errores = $("errores");
+let pasoActual = 0;
+let enviando = false;
+let widgetTurnstile = null;
+
+const TEXTOS = {
+  tiene_casa: { cp: "Código postal de tu casa", municipio: "Municipio o alcaldía de tu casa", terreno: "Superficie del terreno de tu casa (m²)", construccion: "Metros que quieres remodelar o ampliar (m²)" },
+  tiene_terreno: { cp: "Código postal del terreno", municipio: "Municipio o alcaldía del terreno", terreno: "Superficie del terreno (m²)", construccion: "Metros que quieres construir (m²)" },
+  nada: { cp: "Código postal de la zona que te interesa", municipio: "Municipio o alcaldía que te interesa", terreno: "", construccion: "Metros que te gustaría construir (m²)" },
+};
+
+window.turnstileListo = () => {
+  widgetTurnstile = turnstile.render("#verificacion", { sitekey: CONFIG.turnstileSitekey, language: "es" });
+};
+if (CONFIG.turnstileSitekey) {
+  const script = document.createElement("script");
+  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=turnstileListo";
+  script.async = true;
+  document.head.append(script);
+}
+
+$("consentimiento").addEventListener("change", (e) => { $("aceptar").disabled = !e.target.checked; });
+$("aceptar").addEventListener("click", () => {
+  if (!$("consentimiento").checked) return;
+  $("paso-aviso").hidden = true;
+  formulario.hidden = false;
+  mostrarPaso(0);
+});
+
+function aplicarSituacion() {
+  const situacion = formulario.elements.situacion.value;
+  const textos = TEXTOS[situacion];
+  if (!textos) return;
+  $("etiqueta-cp").textContent = textos.cp;
+  $("etiqueta-municipio").textContent = textos.municipio;
+  $("etiqueta-construccion").textContent = textos.construccion;
+  const sinTerreno = situacion === "nada";
+  $("caja-terreno").hidden = sinTerreno;
+  $("m2_terreno").disabled = sinTerreno;
+  if (!sinTerreno) $("etiqueta-terreno").textContent = textos.terreno;
+}
+
+function mostrarPaso(numero) {
+  pasoActual = numero;
+  pasos.forEach((paso, i) => { paso.hidden = i !== numero; });
+  $("avance").textContent = `Paso ${numero + 1} de ${pasos.length}`;
+  $("atras").hidden = numero === 0;
+  $("siguiente").hidden = numero === pasos.length - 1;
+  $("enviar").hidden = numero !== pasos.length - 1;
+  limpiarErrores();
+  window.scrollTo(0, 0);
+}
+
+function limpiarErrores() {
+  errores.hidden = true;
+  errores.replaceChildren();
+  formulario.querySelectorAll("[aria-invalid]").forEach((c) => c.removeAttribute("aria-invalid"));
+}
+
+function mostrarErrores(mensajes) {
+  const lista = document.createElement("ul");
+  mensajes.forEach((mensaje) => {
+    const elemento = document.createElement("li");
+    elemento.textContent = mensaje;
+    lista.append(elemento);
+  });
+  errores.replaceChildren(lista);
+  errores.hidden = false;
+}
+
+function mensajeDe(campo) {
+  if (campo.type === "radio") return campo.name === "situacion" ? "Elige tu situación." : "Elige un nivel de acabados.";
+  const etiqueta = document.querySelector(`label[for="${campo.id}"]`).textContent;
+  return campo.validity.valueMissing ? `Falta: ${etiqueta}` : `Revisa: ${etiqueta}`;
+}
+
+function revisarCampos() {
+  const invalidos = [];
+  const radiosVistos = new Set();
+  pasos[pasoActual].querySelectorAll("input, select").forEach((campo) => {
+    if (campo.closest("#verificacion")) return;
+    if (campo.type !== "radio") campo.removeAttribute("aria-invalid");
+    if (campo.disabled || campo.checkValidity()) return;
+    if (campo.type === "radio") {
+      if (radiosVistos.has(campo.name)) return;
+      radiosVistos.add(campo.name);
+    } else {
+      campo.setAttribute("aria-invalid", "true");
+    }
+    invalidos.push(campo);
+  });
+  return invalidos;
+}
+
+function validarPaso() {
+  limpiarErrores();
+  const invalidos = revisarCampos();
+  if (invalidos.length) {
+    mostrarErrores(invalidos.map(mensajeDe));
+    errores.scrollIntoView({ block: "center" });
+    invalidos[0].focus({ preventScroll: true });
+  }
+  return invalidos.length === 0;
+}
+
+formulario.addEventListener("input", () => {
+  if (errores.hidden) return;
+  const invalidos = revisarCampos();
+  if (invalidos.length) mostrarErrores(invalidos.map(mensajeDe));
+  else limpiarErrores();
+});
+
+$("siguiente").addEventListener("click", () => {
+  if (!validarPaso()) return;
+  if (pasoActual === 0) aplicarSituacion();
+  mostrarPaso(pasoActual + 1);
+});
+$("atras").addEventListener("click", () => mostrarPaso(pasoActual - 1));
+
+function avisar(mensajes) {
+  mostrarErrores(mensajes);
+  errores.scrollIntoView({ block: "center" });
+}
+
+formulario.addEventListener("submit", async (evento) => {
+  evento.preventDefault();
+  if (enviando) return;
+  if (pasoActual !== pasos.length - 1) { $("siguiente").click(); return; }
+  if (!validarPaso()) return;
+  if (!CONFIG.endpoint) { avisar(["El formulario aún no está disponible. Escríbenos a contacto@protandem.mx."]); return; }
+  const token = widgetTurnstile !== null ? turnstile.getResponse(widgetTurnstile) : "";
+  if (!token) { avisar(["Completa la verificación de seguridad antes de enviar."]); return; }
+
+  enviando = true;
+  $("enviar").disabled = true;
+  try {
+    const datos = Object.fromEntries(new FormData(formulario));
+    delete datos["cf-turnstile-response"];
+    datos.consentimiento = $("consentimiento").checked;
+    datos.turnstile = token;
+    const respuesta = await fetch(CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datos),
+    });
+    const resultado = await respuesta.json().catch(() => ({}));
+    if (respuesta.status === 201) {
+      formulario.reset();
+      formulario.hidden = true;
+      $("paso-gracias").hidden = false;
+      $("paso-gracias").focus();
+      window.scrollTo(0, 0);
+      return;
+    }
+    avisar(resultado.preguntas || [resultado.error || "No pudimos guardar tus datos. Intenta de nuevo."]);
+  } catch {
+    avisar(["No pudimos enviar tus datos. Revisa tu conexión e intenta de nuevo."]);
+  } finally {
+    enviando = false;
+    $("enviar").disabled = false;
+    if (widgetTurnstile !== null) turnstile.reset(widgetTurnstile);
+  }
+});
+</script>
+</body>
+</html>
